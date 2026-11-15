@@ -1,52 +1,81 @@
-/* Nexsland. Accent teal is shared with the NexTile palette. */
+/*
+ * Nexsland. The island shape itself is painted with Cairo (lib/engine/shape.js),
+ * so .nexsland-island carries no background or radius. Accent teal is shared with
+ * the NexTile palette.
+ */
 
 .nexsland-island {
-  background-color: #000000;
   color: #ffffff;
-  border-radius: 6px;
 }
 
-.nexsland-accent {
-  color: #2fb8a6;
+/* Album art: rounded via background-image clipping; radius set inline per size. */
+.nexsland-art {
+  background-color: #1f4f49;
+  background-size: cover;
+  background-position: center;
 }
 
+.nexsland-art-fallback {
+  color: #9fe6dc;
+}
+
+.nexsland-viz {
+  spacing: 2px;
+}
+
+.nexsland-viz-bar {
+  background-color: #2fb8a6;
+  border-radius: 2px;
+}
+
+/* Closed: art on the left, bars on the right, the notch convention. */
 .nexsland-media-compact {
-  spacing: 8px;
-  padding: 0 14px 0 8px;
-}
-
-.nexsland-media-expanded {
   spacing: 10px;
-  padding: 14px 18px;
+  padding: 0 12px 0 6px;
 }
 
-.nexsland-media-row {
-  spacing: 12px;
+.nexsland-media-compact-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.nexsland-media-art {
-  border-radius: 6px;
+/* Open: large art, info column, controls. */
+.nexsland-media-expanded {
+  spacing: 18px;
+  padding: 10px 22px 18px 18px;
+}
+
+.nexsland-media-info {
+  spacing: 2px;
+}
+
+.nexsland-media-head {
+  spacing: 10px;
 }
 
 .nexsland-media-title {
+  font-size: 16px;
   font-weight: bold;
 }
 
 .nexsland-media-artist {
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .nexsland-media-source {
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85em;
 }
 
 .nexsland-media-controls {
-  spacing: 18px;
+  spacing: 22px;
 }
 
 .nexsland-media-button {
-  padding: 6px;
+  width: 36px;
+  height: 36px;
   border-radius: 99px;
   color: #ffffff;
 }
@@ -56,9 +85,20 @@
 }
 
 .nexsland-media-button:active {
-  background-color: rgba(47, 184, 166, 0.35);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .nexsland-media-button:insensitive {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.nexsland-media-button.primary {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.nexsland-media-button.primary:hover {
+  background-color: rgba(255, 255, 255, 0.85);
 }

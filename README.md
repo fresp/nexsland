@@ -7,8 +7,9 @@
 <p align="center"><strong>A living, morphing status island for GNOME Shell.</strong></p>
 
 Nexsland turns the top of your GNOME screen into a fluid, glanceable island for media,
-system HUDs and live activities. It stays small until something is happening, then morphs
-with spring physics to show it. Sibling of [NexTile](https://github.com/fresp/nexTile).
+system HUDs and live activities. Like a notch, it hangs from the top bar: slim while
+something is happening, opening into a full panel when you hover it, with spring physics
+throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 
 > **Status: Phase 0 (spike).** The engine, the morphing island and Now Playing are in place.
 > Expect rough edges; not yet published on extensions.gnome.org.
@@ -18,10 +19,14 @@ with spring physics to show it. Sibling of [NexTile](https://github.com/fresp/ne
 - **Live activities** with priorities: several can be active, the most important one shows.
   Right/middle-click dismisses, and dismissed activities can be restored.
 - **Temporary HUDs** that briefly preempt live activities and queue in order.
-- **Now Playing** from any MPRIS player: compact pill with title, tap to expand for artwork,
-  artist and playback controls.
+- **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
+  corners. A floating pill style is available in Preferences.
+- **Open on hover** (or click); move away and it closes.
+- **Now Playing** from any MPRIS player: artwork on the left and live bars on the right
+  while closed; large rounded artwork, track info and playback controls when open.
 - **Spring-driven morphing** that keeps momentum when content changes mid-animation, with
-  bouncy, smooth and snappy presets. Honors GNOME's reduced-animation setting.
+  bouncy (default, jelly-like), smooth and snappy presets. Honors GNOME's reduced-animation
+  setting.
 - Hides in the overview and over fullscreen windows.
 
 ## Install from source
@@ -63,8 +68,8 @@ rules.
 | 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures. |
 | 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                          |
 
-Open design question: whether the island takes over the clock slot in the top bar or floats
-below it (current default).
+Open design question: whether the island should eventually take over the clock slot in the
+top bar. It currently hangs just below the bar, so the clock stays where it is.
 
 ## Credits
 
