@@ -162,3 +162,27 @@ describe("nextile-model", () => {
     expect(statusFromErrorName(null)).toBe("error");
   });
 });
+
+import { mergedPlacement } from "../../lib/engine/placement.js";
+
+describe("mergedPlacement", () => {
+  const anchor = { x: 870, y: 7, width: 180, height: 35 };
+
+  it("hangs from the pill's middle, as wide as the pill when idle", () => {
+    expect(mergedPlacement({ anchor, width: 140 })).toEqual({
+      overlap: 18,
+      width: 180,
+      x: 870,
+      y: 24,
+      squareTop: true,
+    });
+  });
+
+  it("widens around the pill, centred, with rounded top corners", () => {
+    expect(mergedPlacement({ anchor, width: 300 })).toMatchObject({
+      width: 300,
+      x: 810,
+      squareTop: false,
+    });
+  });
+});

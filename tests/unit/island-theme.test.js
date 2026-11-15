@@ -92,3 +92,21 @@ describe("islandOutline", () => {
     expect(islandOutline(p)).toEqual(islandPath(p));
   });
 });
+
+describe("merged shape", () => {
+  it("is a rounded rectangle with separate top and bottom radii", () => {
+    const cmds = islandPath({ width: 180, height: 26, radius: 18, topRadius: 0, style: "merged" });
+    expect(cmds[0]).toEqual({ op: "move", x: 0, y: 0 }); // square top-left
+    const bottomArcs = cmds.filter((c) => c.op === "arc" && c.r === 18);
+    expect(bottomArcs.length).toBe(2);
+    expect(
+      islandOutline({ width: 180, height: 26, radius: 18, topRadius: 0, style: "merged" }),
+    ).toEqual(cmds);
+  });
+
+  it("gives the top corners what height the bottom ones leave", () => {
+    const cmds = islandPath({ width: 300, height: 30, radius: 20, topRadius: 20, style: "merged" });
+    const radii = cmds.filter((c) => c.op === "arc").map((c) => c.r);
+    expect(radii).toEqual([10, 20, 20, 10]);
+  });
+});
