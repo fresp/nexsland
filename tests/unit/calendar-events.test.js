@@ -1,20 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  agenda,
-  dayOffset,
-  isAllDay,
-  shellCalendarRange,
-} from "../../lib/features/calendar-model.js";
+import { addMonths, agenda, dayOffset, isAllDay } from "../../lib/features/calendar-model.js";
 
 const d = (...a) => new Date(...a);
 
 describe("calendar events", () => {
-  it("asks for the same range as GNOME's calendar", () => {
-    // November 2026 starts on a Sunday.
-    expect(shellCalendarRange(2026, 10, 1)).toEqual({ begin: d(2026, 9, 26), end: d(2026, 11, 7) });
-    // With a Sunday week start it is padded by a whole week.
-    expect(shellCalendarRange(2026, 10, 0)).toEqual({ begin: d(2026, 9, 25), end: d(2026, 11, 6) });
+  it("steps across years", () => {
+    expect(addMonths(2026, 10, 2)).toEqual({ year: 2027, month: 0 });
+    expect(addMonths(2026, 0, -1)).toEqual({ year: 2025, month: 11 });
+    expect(addMonths(2026, 5, -18)).toEqual({ year: 2024, month: 11 });
+    expect(addMonths(2026, 5, 0)).toEqual({ year: 2026, month: 5 });
   });
 
   it("counts calendar days, not 24h spans", () => {
