@@ -46,6 +46,11 @@
       <summary>Volume and brightness</summary>
       <description>Show volume, microphone and brightness changes in the island instead of the stock OSD.</description>
     </key>
+    <key name="enable-battery" type="b">
+      <default>true</default>
+      <summary>Battery</summary>
+      <description>Show charging, unplugged, full and low-battery notices in the island.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>

@@ -8,6 +8,7 @@ import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 
 import { IslandEngine } from "./lib/engine/engine.js";
 import { Island } from "./lib/extension/island.js";
+import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
 import { OsdProvider } from "./lib/providers/osd.js";
 import { Logger } from "./lib/shared/logger.js";
@@ -17,6 +18,7 @@ import { SignalTracker } from "./lib/shared/signals.js";
 const PROVIDERS = {
   "enable-media": MprisProvider,
   "enable-osd": OsdProvider,
+  "enable-battery": BatteryProvider,
 };
 
 export default class NexslandExtension extends Extension {

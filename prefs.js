@@ -78,6 +78,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Replace the stock on-screen display while the island is visible"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-battery",
+        _("Battery"),
+        _("Charging, unplugged, fully charged and low battery"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });
