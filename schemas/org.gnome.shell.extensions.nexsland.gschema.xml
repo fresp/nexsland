@@ -120,6 +120,16 @@
       <summary>NexTile</summary>
       <description>Show NexTile tiling changes and add a Tiling tab. Needs External control turned on in NexTile.</description>
     </key>
+    <key name="enable-bar" type="b">
+      <default>false</default>
+      <summary>Theme the top bar</summary>
+      <description>Style the top bar, menus, dash and shell with the Bar module (continued from Open Bar). Off by default so installing Nexsland does not restyle the shell.</description>
+    </key>
+    <key name="island-follow-bar" type="b">
+      <default>true</default>
+      <summary>Island follows the bar's colours</summary>
+      <description>While the Bar module is on, draw the island with the bar's background, text and border colours instead of black.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>
@@ -130,5 +140,6 @@
       <summary>Log level</summary>
       <description>0 off, 1 error, 2 warn, 3 info, 4 debug.</description>
     </key>
+    <child name="bar" schema="org.gnome.shell.extensions.nexsland.bar"/>
   </schema>
 </schemalist>

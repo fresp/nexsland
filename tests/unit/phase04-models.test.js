@@ -28,6 +28,28 @@ describe("placement", () => {
     expect(topInset({ monitorIndex: 0, primaryIndex: 0, panelHeight: 32 })).toBe(32);
     expect(topInset({ monitorIndex: 1, primaryIndex: 0, panelHeight: 32 })).toBe(0);
   });
+
+  it("hangs from a floating bar's visible bottom edge, or the top when the bar is at the bottom", () => {
+    expect(
+      topInset({
+        monitorIndex: 0,
+        primaryIndex: 0,
+        panelTop: 7,
+        panelHeight: 39,
+        monitorHeight: 1080,
+      }),
+    ).toBe(46);
+    expect(
+      topInset({
+        monitorIndex: 0,
+        primaryIndex: 0,
+        panelTop: 1034,
+        panelHeight: 39,
+        monitorHeight: 1080,
+      }),
+    ).toBe(0);
+    expect(topInset({ monitorIndex: 0, primaryIndex: 0, panelTop: NaN, panelHeight: 32 })).toBe(32);
+  });
 });
 
 describe("downloads-model", () => {

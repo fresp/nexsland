@@ -12,6 +12,8 @@ import {
   gettext as _,
 } from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
+import { addBarPrefs } from "./lib/bar/prefs.js";
+
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
 const ISLAND_STYLES = ["attached", "floating"];
 const ISLAND_MONITORS = ["primary", "focused"];
@@ -156,6 +158,28 @@ export default class NexslandPreferences extends ExtensionPreferences {
     );
     page.add(activities);
 
+    const bar = new Adw.PreferencesGroup({
+      title: _("Top bar"),
+      description: _("Bar, menu, dash and shell theming, continued from Open Bar"),
+    });
+    bar.add(
+      this._switch(
+        settings,
+        "enable-bar",
+        _("Theme the top bar"),
+        _("Off by default; style it on the Top bar page"),
+      ),
+    );
+    bar.add(
+      this._switch(
+        settings,
+        "island-follow-bar",
+        _("Island matches the bar"),
+        _("Use the bar's background, text and border colours for the island"),
+      ),
+    );
+    page.add(bar);
+
     const tabs = new Adw.PreferencesGroup({
       title: _("Panel tabs"),
       description: _("Shown when the island opens, after Home"),
@@ -185,6 +209,12 @@ export default class NexslandPreferences extends ExtensionPreferences {
     page.add(debug);
 
     window.add(page);
+
+    // Top bar page: Open Bar's settings UI, for the Bar module.
+    addBarPrefs(window, {
+      settings: this.getSettings("org.gnome.shell.extensions.nexsland.bar"),
+      path: `${this.path}/lib/bar`,
+    });
   }
 
   /** Combo row bound to a string key whose values are `values`, shown as `labels`. */

@@ -437,3 +437,89 @@
   color: rgba(255, 255, 255, 0.75);
   text-align: center;
 }
+
+/*
+ * Light island: the Bar module gave it a light background (island-follow-bar).
+ * The same hierarchy as the dark defaults, in black. Primary text comes from the
+ * island's inline colour (the bar's foreground); accents stay as they are.
+ */
+.nexsland-island.light .nexsland-media-compact-title {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.nexsland-island.light .nexsland-media-artist,
+.nexsland-island.light .nexsland-hud-detail,
+.nexsland-island.light .nexsland-stat-value,
+.nexsland-island.light .nexsland-nextile-status {
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.nexsland-island.light .nexsland-media-source,
+.nexsland-island.light .nexsland-panel-title,
+.nexsland-island.light .nexsland-calendar-cell.header,
+.nexsland-island.light .nexsland-clipboard-note,
+.nexsland-island.light .nexsland-clipboard-empty {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.nexsland-island.light .nexsland-clock-date,
+.nexsland-island.light .nexsland-calendar-month {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.nexsland-island.light .nexsland-calendar-cell.outside,
+.nexsland-island.light .nexsland-media-button:insensitive {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.nexsland-island.light .nexsland-media-button,
+.nexsland-island.light .nexsland-clipboard-item,
+.nexsland-island.light .nexsland-pill-button {
+  color: #000000;
+}
+
+.nexsland-island.light .nexsland-tab {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.nexsland-island.light .nexsland-tab:hover,
+.nexsland-island.light .nexsland-tab:checked {
+  color: #000000;
+}
+
+.nexsland-island.light .nexsland-media-button:hover,
+.nexsland-island.light .nexsland-tab:hover,
+.nexsland-island.light .nexsland-pill-button,
+.nexsland-island.light .nexsland-clipboard-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nexsland-island.light .nexsland-tab:checked,
+.nexsland-island.light .nexsland-media-button:active,
+.nexsland-island.light .nexsland-pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+.nexsland-island.light .nexsland-media-button.primary,
+.nexsland-island.light .nexsland-pill-button.primary {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.nexsland-island.light .nexsland-media-button.primary:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Battery glyphs keep their tone colour (charging, low, critical); only the plain
+   one turns black. */
+.nexsland-island.light .nexsland-hud-track {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.nexsland-island.light .nexsland-tone-plain .nexsland-batt {
+  border-color: #000000;
+}
+
+.nexsland-island.light .nexsland-tone-plain .nexsland-batt-fill {
+  background-color: #000000;
+}

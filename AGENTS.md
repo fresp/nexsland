@@ -15,6 +15,10 @@ Nexsland is a GNOME Shell extension (GNOME 46 and 51) that renders a morphing
 - `lib/providers/` — one module per activity source. A provider only calls
   `engine.showLive/hideLive/showTemporary`; it never touches the island. Pure logic goes in a
   sibling `*-model.js` with unit tests.
+- `lib/bar/` — the Bar module: Open Bar's source (top bar, menu, dash and shell theming),
+  vendored and adapted, loaded lazily when `enable-bar` is on. Its settings are the
+  `org.gnome.shell.extensions.nexsland.bar` child schema. Mark every change to upstream code
+  with a `Nexsland:` comment. It is excluded from Prettier/ESLint until the port settles.
 - `extension.js` — lifecycle and provider toggles. `prefs.js` — Adw preferences.
 
 ## Rules
