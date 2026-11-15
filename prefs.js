@@ -97,6 +97,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     activities.add(
       this._switch(settings, "enable-network", _("Network"), _("Wi-Fi, wired and VPN connections")),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-dnd",
+        _("Do Not Disturb"),
+        _("When Do Not Disturb is turned on or off"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });

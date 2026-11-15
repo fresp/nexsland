@@ -61,6 +61,11 @@
       <summary>Network</summary>
       <description>Show Wi-Fi, wired and VPN connections and disconnections.</description>
     </key>
+    <key name="enable-dnd" type="b">
+      <default>true</default>
+      <summary>Do Not Disturb</summary>
+      <description>Show Do Not Disturb being turned on and off.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>
