@@ -308,6 +308,22 @@
   spacing: 6px;
 }
 
+.nexsland-clock-face-text {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nexsland-clock-face-separator {
+  width: 1px;
+  height: 14px;
+  margin: 0 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nexsland-island.light .nexsland-clock-face-separator {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .nexsland-clock-face-time {
   font-size: 13px;
   font-weight: 600;

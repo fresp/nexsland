@@ -29,6 +29,11 @@
       <summary>Clock in the island</summary>
       <description>Hide the top bar's clock while the island is shown: the idle island shows the time, and the open panel shows it in its header.</description>
     </key>
+    <key name="clock-text" type="s">
+      <default>""</default>
+      <summary>Text next to the clock</summary>
+      <description>Shown before the time in the island's clock (Clock in the island). Empty for none.</description>
+    </key>
     <key name="replace-clock-menu" type="b">
       <default>true</default>
       <summary>Open Nexsland from the clock</summary>
