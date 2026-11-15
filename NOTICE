@@ -2,8 +2,9 @@ Nexsland
 Copyright (C) 2026 Nexsland contributors
 Licensed under the GNU General Public License v3.0 or later. See LICENSE.
 
-Nexsland is an independent GNOME Shell extension. It contains no code or
-assets copied from the projects below; their designs informed its behavior.
+Nexsland is an independent GNOME Shell extension. Apart from lib/bar/ (Open
+Bar, below), it contains no code or assets copied from these projects; their
+designs informed its behavior.
 
 - DynamicNotch (https://github.com/jackson-storm/DynamicNotch), GPL-3.0.
   The live-activity / temporary-notification presentation model in
@@ -11,6 +12,11 @@ assets copied from the projects below; their designs informed its behavior.
 - Atoll (https://github.com/Ebullioscopic/Atoll), GPL-3.0, itself derived
   from boring.notch (https://github.com/TheBoredTeam/boring.notch), GPL-3.0.
   Feature set and interaction ideas.
+- Open Bar (https://github.com/neuromorph/openbar) by neuromorph,
+  GPL-2.0-or-later / GPL-3.0. lib/bar/ is Open Bar's source (upstream commit
+  01fb242, its GNOME 49 release), adapted to run as Nexsland's Bar module and
+  continued past GNOME 49. Changes are marked "Nexsland:" in the code. Its
+  GTK/Flatpak app theming is not included.
 - NexTile (https://github.com/fresp/nexTile), GPL-3.0-or-later.
   Build, lint and logging scaffolding, and the no-untracked-connect ESLint rule.
 
