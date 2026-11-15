@@ -24,6 +24,11 @@ const extensionGlobals = {
 
 export default [
   {
+    // Vendored from Open Bar (neuromorph/openbar, GPL). Kept close to upstream while it
+    // is being adapted; brought under these rules once the port settles.
+    ignores: ["lib/bar/**"],
+  },
+  {
     files: ["lib/**/*.js", "extension.js", "prefs.js"],
     languageOptions: { ecmaVersion: 2022, sourceType: "module", globals: extensionGlobals },
     plugins: { local: { rules: localRules } },
