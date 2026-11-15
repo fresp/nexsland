@@ -44,7 +44,7 @@ export default [
   },
   {
     // The prefs process is torn down wholesale when its window closes.
-    files: ["prefs.js", "lib/prefs/**/*.js", "lib/bar/prefs.js"],
+    files: ["prefs.js", "lib/prefs/**/*.js"],
     rules: { "local/no-untracked-connect": "off" },
   },
 ];
