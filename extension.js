@@ -46,6 +46,7 @@ const BAR_THEME_KEYS = [
   "heffect",
   "hcolor",
   "halpha",
+  "height",
 ];
 const BAR_THEME_DEBOUNCE_MS = 100;
 

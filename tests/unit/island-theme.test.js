@@ -117,8 +117,11 @@ describe("neon glow", () => {
     const hovered = { ...bar, neon: true, heffect: true, hcolor: ["0", "0.7", "0.9"], halpha: 0.5 };
     expect(themeFromBar(hovered).hover).toEqual({
       color: [0, 0.7, 0.9, 0.5],
+      width: 3.5, // a tenth of the default 35px bar
       glow: [0, 0.7, 0.9, 0.55],
     });
+    expect(themeFromBar({ ...hovered, height: 40 }).hover.width).toBe(4);
+    expect(themeFromBar({ ...hovered, height: 120 }).hover.width).toBe(6); // capped
     expect(themeFromBar({ ...hovered, heffect: false }).hover).toBe(null);
   });
 
