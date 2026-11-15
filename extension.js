@@ -23,6 +23,7 @@ import { DownloadsProvider } from "./lib/providers/downloads.js";
 import { NexTileProvider } from "./lib/providers/nextile.js";
 import { CalendarFeature } from "./lib/features/calendar.js";
 import { ClipboardFeature } from "./lib/features/clipboard.js";
+import { NotificationsFeature } from "./lib/features/notifications.js";
 import { StatsFeature } from "./lib/features/stats.js";
 import { TimerFeature } from "./lib/features/timer.js";
 import { Logger } from "./lib/shared/logger.js";
@@ -56,6 +57,7 @@ const PROVIDERS = {
   "enable-dnd": DndProvider,
   "enable-recording": RecordingProvider,
   "enable-privacy": PrivacyProvider,
+  "enable-notifications": NotificationsFeature,
   "enable-timer": TimerFeature,
   "enable-calendar": CalendarFeature,
   "enable-stats": StatsFeature,

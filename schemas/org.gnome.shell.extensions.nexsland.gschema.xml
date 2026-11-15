@@ -95,6 +95,11 @@
       <summary>Microphone in use</summary>
       <description>Show which apps are recording from the microphone.</description>
     </key>
+    <key name="enable-notifications" type="b">
+      <default>true</default>
+      <summary>Notifications tab</summary>
+      <description>A panel tab listing the shell's notifications, with Do Not Disturb and Clear.</description>
+    </key>
     <key name="enable-timer" type="b">
       <default>true</default>
       <summary>Timer tab</summary>
