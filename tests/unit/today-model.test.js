@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { TodayList, formatMinutes, parseEntry } from "../../lib/features/today-model.js";
+import { TodayList, formatMinutes, parseEntry, parseTime } from "../../lib/features/today-model.js";
 
 const DAY = "2026-11-15";
 const at = (h, m = 0) => h * 60 + m;
@@ -83,6 +83,21 @@ describe("TodayList", () => {
     ]);
     expect(list.tasks).toHaveLength(1);
     expect(list.due(at(23, 59))).toEqual([]);
+  });
+
+  it("takes a time entered separately over one in the title", () => {
+    const list = new TodayList();
+    expect(list.add("Review", DAY, parseTime("16:00")).minutes).toBe(at(16));
+    expect(list.add("Standup 09:00", DAY, at(10))).toMatchObject({
+      title: "Standup",
+      minutes: at(10),
+    });
+    expect([parseTime(" 9.05 "), parseTime("24:00"), parseTime("4pm"), parseTime("")]).toEqual([
+      at(9, 5),
+      null,
+      null,
+      null,
+    ]);
   });
 
   it("removes a task and refuses one without a title", () => {

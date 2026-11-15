@@ -440,25 +440,44 @@
   spacing: 6px;
 }
 
+/* The add row: an outlined row shaped like a task (St draws no dashed borders). */
+.nexsland-today-add {
+  spacing: 8px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.nexsland-today-plus {
+  width: 38px;
+  color: #2fb8a6;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Undo the shell theme's entry chrome: these read as text in the row. */
 .nexsland-today-entry {
-  padding: 4px 10px;
-  border-radius: 99px;
-  background-color: rgba(255, 255, 255, 0.1);
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
   color: #ffffff;
   font-size: 12px;
 }
 
-.nexsland-today-entry:focus {
-  background-color: rgba(255, 255, 255, 0.16);
+.nexsland-today-entry-time {
+  width: 44px;
+  font-feature-settings: "tnum";
+}
+
+.nexsland-today-entry-time.invalid {
+  color: #ff6b7a;
 }
 
 .nexsland-today-list {
   spacing: 2px;
-}
-
-.nexsland-today-empty {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .nexsland-today-task {
@@ -898,11 +917,17 @@
 }
 
 .nexsland-island.light .nexsland-today-entry {
-  background-color: rgba(0, 0, 0, 0.1);
   color: #000000;
 }
 
-.nexsland-island.light .nexsland-today-empty,
+.nexsland-island.light .nexsland-today-add {
+  border-color: rgba(0, 0, 0, 0.24);
+}
+
+.nexsland-island.light .nexsland-today-plus {
+  color: #14796c;
+}
+
 .nexsland-island.light .nexsland-today-time,
 .nexsland-island.light .nexsland-today-check,
 .nexsland-island.light .nexsland-today-remove {
