@@ -5,9 +5,10 @@
 ### Added
 
 - **Plan tasks for the coming days** in the Today tab. The add row has a day button between
-  the title and the time: click for the next day, right click or scroll to go back, up to 30
-  days ahead. The tab lists today's tasks, then each coming day's under its date. A task for
-  a later day stays quiet until that day, keeps its time, and is reminded then.
+  the title and the time; click it to pick a day from a month, up to a year ahead, or scroll
+  on it to step a day at a time. Days that already have tasks are tinted. The tab lists
+  today's tasks, then each coming day's under its date. A task for a later day stays quiet
+  until that day, keeps its time, and is reminded then.
 
 ## 0.3.0 (2026-11-16)
 

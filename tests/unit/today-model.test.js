@@ -1,6 +1,16 @@
 import { describe, expect, it } from "vitest";
 
-import { TodayList, formatMinutes, parseEntry, parseTime } from "../../lib/features/today-model.js";
+import {
+  MAX_DAYS_AHEAD,
+  TodayList,
+  addDays,
+  dayString,
+  formatMinutes,
+  isPlannable,
+  parseDay,
+  parseEntry,
+  parseTime,
+} from "../../lib/features/today-model.js";
 
 const DAY = "2026-11-15";
 const at = (h, m = 0) => h * 60 + m;
@@ -131,5 +141,22 @@ describe("TodayList", () => {
     const task = list.add("Review 16:00", DAY);
     list.remove(task.id);
     expect(list.tasks).toEqual([]);
+  });
+});
+
+describe("days", () => {
+  it("converts and steps across months and years", () => {
+    expect(dayString(new Date(2026, 0, 5))).toBe("2026-01-05");
+    expect(dayString(parseDay(DAY))).toBe(DAY);
+    expect(addDays(DAY, 16)).toBe("2026-12-01");
+    expect(addDays("2026-12-31", 1)).toBe("2027-01-01");
+    expect(addDays("2026-03-01", -1)).toBe("2026-02-28");
+  });
+
+  it("plans from today to a year out", () => {
+    expect(isPlannable(DAY, DAY)).toBe(true);
+    expect(isPlannable(addDays(DAY, -1), DAY)).toBe(false);
+    expect(isPlannable(addDays(DAY, MAX_DAYS_AHEAD), DAY)).toBe(true);
+    expect(isPlannable(addDays(DAY, MAX_DAYS_AHEAD + 1), DAY)).toBe(false);
   });
 });

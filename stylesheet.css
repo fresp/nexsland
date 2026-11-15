@@ -490,6 +490,17 @@
   color: #2fb8a6;
 }
 
+.nexsland-today-date:checked {
+  background-color: #2fb8a6;
+  color: #000000;
+}
+
+/* The day picker borrows the Calendar tab's month grid. */
+.nexsland-today-picker {
+  spacing: 2px;
+  padding: 0 0 4px;
+}
+
 .nexsland-today-day {
   padding: 6px 8px 1px;
   font-size: 10px;
