@@ -391,6 +391,16 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+.nexsland-calendar-event-button {
+  margin: 0 -4px;
+  padding: 1px 4px;
+  border-radius: 6px;
+}
+
+.nexsland-calendar-event-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .nexsland-calendar-event {
   spacing: 6px;
 }
@@ -597,6 +607,7 @@
 
 .nexsland-island.light .nexsland-notification:hover,
 .nexsland-island.light .nexsland-notification-dismiss:hover,
+.nexsland-island.light .nexsland-calendar-event-button:hover,
 .nexsland-island.light .nexsland-media-button:hover,
 .nexsland-island.light .nexsland-tab:hover,
 .nexsland-island.light .nexsland-pill-button,
