@@ -87,6 +87,7 @@ export default class NexslandExtension extends Extension {
       const scheduler = (this._scheduler = this._makeScheduler());
       this._engine = new IslandEngine({ scheduler });
       this._island = new Island({ engine: this._engine, settings: this._settings, scheduler });
+      this._island.setClock(Main.panel.statusArea.dateMenu ?? null);
       this._providers = new Map();
       this._signals = new SignalTracker();
       for (const key of Object.keys(PROVIDERS)) {

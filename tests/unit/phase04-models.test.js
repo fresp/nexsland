@@ -163,7 +163,7 @@ describe("nextile-model", () => {
   });
 });
 
-import { mergedPlacement } from "../../lib/engine/placement.js";
+import { mergedPlacement, pillPlacement } from "../../lib/engine/placement.js";
 
 describe("mergedPlacement", () => {
   const anchor = { x: 870, y: 7, width: 180, height: 35 };
@@ -184,5 +184,14 @@ describe("mergedPlacement", () => {
       x: 810,
       cap: { x: 60, width: 180 },
     });
+  });
+});
+
+describe("pillPlacement", () => {
+  const anchor = { x: 870, y: 7, width: 180, height: 35 };
+
+  it("takes the pill's place, widening around it", () => {
+    expect(pillPlacement({ anchor, width: 0 })).toEqual({ width: 180, x: 870, y: 7 });
+    expect(pillPlacement({ anchor, width: 340 })).toEqual({ width: 340, x: 790, y: 7 });
   });
 });

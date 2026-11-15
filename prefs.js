@@ -44,6 +44,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     island.add(
       this._switch(
         settings,
+        "clock-in-island",
+        _("Clock in the island"),
+        _("Hide the top bar's clock; the island shows the time instead"),
+      ),
+    );
+    island.add(
+      this._switch(
+        settings,
         "replace-clock-menu",
         _("Open from the clock"),
         _("The clock opens Nexsland instead of GNOME's notifications and calendar menu"),

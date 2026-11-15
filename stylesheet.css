@@ -303,6 +303,32 @@
   color: #000000;
 }
 
+/* Clock in the island (clock-in-island). */
+.nexsland-clock-face {
+  spacing: 6px;
+}
+
+.nexsland-clock-face-time {
+  font-size: 13px;
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+
+.nexsland-panel-clock {
+  spacing: 8px;
+}
+
+.nexsland-panel-clock-time {
+  font-size: 18px;
+  font-weight: bold;
+  font-feature-settings: "tnum";
+}
+
+.nexsland-panel-clock-date {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
 /* Timer. */
 .nexsland-timer {
   spacing: 8px;
@@ -635,6 +661,7 @@
 }
 
 .nexsland-island.light .nexsland-clock-date,
+.nexsland-island.light .nexsland-panel-clock-date,
 .nexsland-island.light .nexsland-calendar-month {
   color: rgba(0, 0, 0, 0.65);
 }
