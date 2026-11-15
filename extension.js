@@ -41,6 +41,7 @@ const BAR_THEME_KEYS = [
   "bcolor",
   "balpha",
   "bwidth",
+  "neon",
 ];
 const BAR_THEME_DEBOUNCE_MS = 100;
 

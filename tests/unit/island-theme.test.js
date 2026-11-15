@@ -22,6 +22,7 @@ const OPEN_BAR = {
   bcolor: ["1.0", "1.0", "1.0"],
   balpha: 0.85,
   bwidth: 2,
+  neon: true,
 };
 
 describe("island-theme", () => {
@@ -37,6 +38,7 @@ describe("island-theme", () => {
       fill: [0.125, 0.125, 0.125, 0.95],
       fg: [1, 1, 1, 1],
       border: { color: [1, 1, 1, 0.85], width: 2 },
+      glow: { color: [1, 1, 1, 0.55], size: 6 },
       light: false,
     });
   });
@@ -90,6 +92,28 @@ describe("islandOutline", () => {
   it("outlines a floating island all round", () => {
     const p = { ...geom, style: "floating" };
     expect(islandOutline(p)).toEqual(islandPath(p));
+  });
+});
+
+describe("neon glow", () => {
+  const bar = {
+    bartype: "Islands",
+    iscolor: ["0.15", "0.2", "0.4"],
+    isalpha: 1,
+    bcolor: ["0.9", "0.9", "1.0"],
+    balpha: 1,
+    bwidth: 0,
+  };
+
+  it("glows in the border colour when neon is on, even without a border", () => {
+    const theme = themeFromBar({ ...bar, neon: true });
+    expect(theme.border).toBe(null);
+    expect(theme.glow).toEqual({ color: [0.9, 0.9, 1, 0.55], size: 6 });
+  });
+
+  it("has no glow without neon", () => {
+    expect(themeFromBar(bar).glow).toBe(null);
+    expect(themeFromBar({ ...bar, neon: false }).glow).toBe(null);
   });
 });
 
