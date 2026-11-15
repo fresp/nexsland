@@ -5,6 +5,7 @@
 
 import GLib from "gi://GLib";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
+import * as Main from "resource:///org/gnome/shell/ui/main.js";
 
 import { IslandEngine } from "./lib/engine/engine.js";
 import { themeFromBar } from "./lib/engine/island-theme.js";
@@ -219,6 +220,9 @@ export default class NexslandExtension extends Extension {
       BAR_THEME_KEYS.map((key) => [key, bar.get_value(key).deepUnpack()]),
     );
     this._island.setTheme(themeFromBar(values));
+    // On an Islands/Trilands bar the clock is its own pill: merge the island into it.
+    const pill = values.bartype === "Islands" || values.bartype === "Trilands";
+    this._island.setAnchor(pill ? (Main.panel.statusArea.dateMenu ?? null) : null);
   }
 
   _stopIslandTheme() {
@@ -228,6 +232,7 @@ export default class NexslandExtension extends Extension {
     this._themeSignals = null;
     this._barThemeSettings = null;
     this._island?.setTheme(null);
+    this._island?.setAnchor(null);
   }
 
   _syncTabs() {
