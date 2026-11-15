@@ -226,3 +226,79 @@
 .nexsland-tone-privacy .nexsland-hud-tinted {
   color: #ff9b42;
 }
+
+/* Open panel (tabs). */
+.nexsland-panel {
+  padding: 8px 20px 16px;
+  spacing: 6px;
+}
+
+.nexsland-panel-header {
+  spacing: 8px;
+}
+
+.nexsland-tabs {
+  spacing: 4px;
+}
+
+.nexsland-tab {
+  width: 32px;
+  height: 28px;
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-tab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.nexsland-tab:checked {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.nexsland-panel-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-clock {
+  spacing: 2px;
+}
+
+.nexsland-clock-time {
+  font-size: 40px;
+  font-weight: bold;
+  font-feature-settings: "tnum";
+  text-align: center;
+}
+
+.nexsland-clock-date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.nexsland-row {
+  spacing: 8px;
+}
+
+.nexsland-pill-button {
+  padding: 6px 14px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nexsland-pill-button:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.nexsland-pill-button.primary {
+  background-color: #ffffff;
+  color: #000000;
+}
