@@ -110,6 +110,11 @@
       <summary>Clipboard tab</summary>
       <description>Recent text copies kept in memory only. Off by default for privacy.</description>
     </key>
+    <key name="enable-downloads" type="b">
+      <default>true</default>
+      <summary>Downloads</summary>
+      <description>Show browser downloads in progress in the Downloads folder, and when they finish.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>

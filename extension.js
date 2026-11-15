@@ -16,6 +16,7 @@ import { NetworkProvider } from "./lib/providers/network.js";
 import { DndProvider } from "./lib/providers/dnd.js";
 import { RecordingProvider } from "./lib/providers/recording.js";
 import { PrivacyProvider } from "./lib/providers/privacy.js";
+import { DownloadsProvider } from "./lib/providers/downloads.js";
 import { CalendarFeature } from "./lib/features/calendar.js";
 import { ClipboardFeature } from "./lib/features/clipboard.js";
 import { StatsFeature } from "./lib/features/stats.js";
@@ -40,6 +41,7 @@ const PROVIDERS = {
   "enable-calendar": CalendarFeature,
   "enable-stats": StatsFeature,
   "enable-clipboard": ClipboardFeature,
+  "enable-downloads": DownloadsProvider,
 };
 
 export default class NexslandExtension extends Extension {

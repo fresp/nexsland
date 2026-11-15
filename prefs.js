@@ -136,6 +136,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Which apps are recording from the microphone"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-downloads",
+        _("Downloads"),
+        _("Browser downloads in progress and finished"),
+      ),
+    );
     page.add(activities);
 
     const tabs = new Adw.PreferencesGroup({
