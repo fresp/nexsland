@@ -1,4 +1,4 @@
-# Notes for extensions.gnome.org review (0.2.0)
+# Notes for extensions.gnome.org review (0.3.0)
 
 Nexsland is a status "island" at the top of the screen. These notes explain the places where it
 reaches into the shell beyond public API, and why. Every one of them is undone in `disable()`.
@@ -58,10 +58,17 @@ Each of these is a setting, on by default, and restored on disable or when turne
   the time, the top bar's clock is hidden. On an Islands bar its slot is kept (`opacity` 0,
   `reactive` false) because the island sits there; otherwise its container is hidden. The
   original values are restored whenever the island is not shown, the setting is off, or on
-  disable.
+  disable. The "notch" island style does the same regardless of the setting: it sits in the
+  top bar where the clock is, raised above `panelBox` in `uiGroup` (`_setAboveBar`) so it
+  covers the bar there and takes the pointer; it is lowered again in any other style.
 - **Clock pill look** (`_syncAnchorStyle`): on an Islands bar the island draws the clock pill
   itself, so the pill's own background, border and shadow are hidden with an inline style while
   the island is shown, and the previous inline style is restored afterwards.
+
+## Stored data
+
+The Today tab's checklist (`today-tasks`, JSON) and the Pomodoro lengths are kept in the
+extension's GSettings. Nothing else the user types is stored, and nothing leaves the machine.
 
 ## Private shell API
 
