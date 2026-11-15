@@ -472,6 +472,32 @@
   font-feature-settings: "tnum";
 }
 
+.nexsland-today-date {
+  padding: 1px 8px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.nexsland-today-date:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.nexsland-today-date.ahead {
+  color: #2fb8a6;
+}
+
+.nexsland-today-day {
+  padding: 6px 8px 1px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .nexsland-today-entry-time.invalid {
   color: #ff6b7a;
 }
@@ -942,4 +968,17 @@
 .nexsland-island.light .nexsland-today-task.due .nexsland-today-time,
 .nexsland-island.light .nexsland-today-task.due .nexsland-today-check {
   color: #14796c;
+}
+
+.nexsland-island.light .nexsland-today-date {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.nexsland-island.light .nexsland-today-date.ahead {
+  color: #14796c;
+}
+
+.nexsland-island.light .nexsland-today-day {
+  color: rgba(0, 0, 0, 0.5);
 }

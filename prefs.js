@@ -206,7 +206,11 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("The shell's notifications, Do Not Disturb and Clear"),
       ],
       ["enable-timer", _("Timer"), _("Countdown with presets, and Pomodoro rounds")],
-      ["enable-today", _("Today"), _("A checklist for the day with timed reminders")],
+      [
+        "enable-today",
+        _("Today"),
+        _("A checklist for today and the coming days, with timed reminders"),
+      ],
       ["enable-calendar", _("Calendar"), _("Events, months and days")],
       ["enable-stats", _("System"), _("CPU, memory and network")],
       [

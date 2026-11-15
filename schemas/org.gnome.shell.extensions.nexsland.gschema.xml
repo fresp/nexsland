@@ -148,7 +148,7 @@
     <key name="enable-today" type="b">
       <default>true</default>
       <summary>Today tab</summary>
-      <description>A checklist for the day. A task with a time is shown on the island when it is due.</description>
+      <description>A checklist for today and the coming days. A task with a time is shown on the island when it is due.</description>
     </key>
     <key name="today-remind-before" type="i">
       <range min="0" max="120"/>
