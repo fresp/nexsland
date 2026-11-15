@@ -9,6 +9,7 @@ import * as Main from "resource:///org/gnome/shell/ui/main.js";
 
 import { IslandEngine } from "./lib/engine/engine.js";
 import { themeFromBar } from "./lib/engine/island-theme.js";
+import { ClockTakeover } from "./lib/extension/clock.js";
 import { Island } from "./lib/extension/island.js";
 import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
@@ -95,6 +96,8 @@ export default class NexslandExtension extends Extension {
       );
       this._syncBar();
       this._syncIslandTheme();
+      this._signals.track(this._settings, "changed::replace-clock-menu", () => this._syncClock());
+      this._syncClock();
     } catch (e) {
       try {
         this.disable();
@@ -112,6 +115,8 @@ export default class NexslandExtension extends Extension {
     this._barGeneration = (this._barGeneration ?? 0) + 1; // cancels a pending lazy load
     this._stopBar();
     this._stopIslandTheme();
+    this._clock?.destroy();
+    this._clock = null;
     for (const provider of this._providers?.values() ?? []) provider.destroy();
     this._providers = null;
     this._island?.teardown();
@@ -185,6 +190,22 @@ export default class NexslandExtension extends Extension {
       Logger.error(`bar: failed to stop cleanly: ${e}`);
     }
     this._bar = null;
+  }
+
+  /** The clock opens Nexsland instead of GNOME's date menu (replace-clock-menu). */
+  _syncClock() {
+    const wanted = this._settings?.get_boolean("replace-clock-menu") ?? false;
+    if (wanted && !this._clock && this._island) {
+      try {
+        this._clock = new ClockTakeover({ island: this._island });
+      } catch (e) {
+        Logger.error(`clock: takeover failed: ${e}`);
+        this._clock = null;
+      }
+    } else if (!wanted && this._clock) {
+      this._clock.destroy();
+      this._clock = null;
+    }
   }
 
   /** Island colours follow the bar while the Bar module and island-follow-bar are on. */

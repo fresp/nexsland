@@ -44,6 +44,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     island.add(
       this._switch(
         settings,
+        "replace-clock-menu",
+        _("Open from the clock"),
+        _("The clock opens Nexsland instead of GNOME's notifications and calendar menu"),
+      ),
+    );
+    island.add(
+      this._switch(
+        settings,
         "show-on-lock-screen",
         _("Show on lock screen"),
         _("Activities and HUDs only; the panel never opens while locked"),

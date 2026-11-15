@@ -24,6 +24,11 @@
       <summary>Open on hover</summary>
       <description>Expand the island while the pointer rests on it.</description>
     </key>
+    <key name="replace-clock-menu" type="b">
+      <default>true</default>
+      <summary>Open Nexsland from the clock</summary>
+      <description>Hovering or clicking the clock in the top bar opens the Nexsland panel (Notifications, Calendar) instead of GNOME's notifications and calendar menu.</description>
+    </key>
     <key name="show-on-lock-screen" type="b">
       <default>false</default>
       <summary>Show on the lock screen</summary>
