@@ -30,7 +30,7 @@
       <description>Keep activities and HUDs visible while the screen is locked. The panel and its tabs never open on the lock screen.</description>
     </key>
     <key name="show-when-idle" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Show the island when idle</summary>
       <description>Keep a small pill visible when no activity is active.</description>
     </key>
