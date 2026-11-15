@@ -70,6 +70,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     activities.add(
       this._switch(settings, "enable-media", _("Now Playing"), _("Media from MPRIS players")),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-osd",
+        _("Volume and brightness"),
+        _("Replace the stock on-screen display while the island is visible"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });

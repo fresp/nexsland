@@ -102,3 +102,87 @@
 .nexsland-media-button.primary:hover {
   background-color: rgba(255, 255, 255, 0.85);
 }
+
+/* Temporary HUDs (OSD, battery). */
+.nexsland-hud {
+  spacing: 10px;
+  padding: 0 14px 0 12px;
+}
+
+.nexsland-hud-track {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #33363d;
+}
+
+.nexsland-hud-fill {
+  border-radius: 3px;
+  background-color: #2fb8a6;
+}
+
+.nexsland-hud-fill.over {
+  background-color: #f2c14e;
+}
+
+.nexsland-hud-value {
+  font-size: 12px;
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+
+.nexsland-hud-text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nexsland-batt {
+  width: 23px;
+  height: 11px;
+  padding: 1px;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+}
+
+.nexsland-batt-fill {
+  border-radius: 1px;
+  background-color: #ffffff;
+}
+
+.nexsland-tone-accent .nexsland-hud-icon,
+.nexsland-tone-accent .nexsland-hud-tinted {
+  color: #2fb8a6;
+}
+
+.nexsland-tone-accent .nexsland-batt {
+  border-color: #2fb8a6;
+}
+
+.nexsland-tone-accent .nexsland-batt-fill {
+  background-color: #2fb8a6;
+}
+
+.nexsland-tone-warn .nexsland-hud-icon,
+.nexsland-tone-warn .nexsland-hud-tinted {
+  color: #f2c14e;
+}
+
+.nexsland-tone-warn .nexsland-batt {
+  border-color: #f2c14e;
+}
+
+.nexsland-tone-warn .nexsland-batt-fill {
+  background-color: #f2c14e;
+}
+
+.nexsland-tone-alert .nexsland-hud-icon,
+.nexsland-tone-alert .nexsland-hud-tinted {
+  color: #ff6b7a;
+}
+
+.nexsland-tone-alert .nexsland-batt {
+  border-color: #ff6b7a;
+}
+
+.nexsland-tone-alert .nexsland-batt-fill {
+  background-color: #ff6b7a;
+}

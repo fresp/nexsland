@@ -9,12 +9,14 @@ import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 import { IslandEngine } from "./lib/engine/engine.js";
 import { Island } from "./lib/extension/island.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
+import { OsdProvider } from "./lib/providers/osd.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
 /** Providers that can be toggled from prefs: settings key -> constructor. */
 const PROVIDERS = {
   "enable-media": MprisProvider,
+  "enable-osd": OsdProvider,
 };
 
 export default class NexslandExtension extends Extension {
@@ -67,7 +69,13 @@ export default class NexslandExtension extends Extension {
     const running = this._providers.get(key);
     if (wanted && !running) {
       try {
-        this._providers.set(key, new PROVIDERS[key]({ engine: this._engine }));
+        this._providers.set(
+          key,
+          new PROVIDERS[key]({
+            engine: this._engine,
+            canPresent: () => this._island?.canPresent() ?? false,
+          }),
+        );
       } catch (e) {
         Logger.error(`provider ${key} failed to start: ${e}`);
       }
