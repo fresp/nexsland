@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="nexsland">
   <schema id="org.gnome.shell.extensions.nexsland" path="/org/gnome/shell/extensions/nexsland/">
+    <key name="island-style" type="s">
+      <choices>
+        <choice value="attached"/>
+        <choice value="floating"/>
+      </choices>
+      <default>"attached"</default>
+      <summary>Island style</summary>
+      <description>"attached" hangs the island from the top bar like a notch; "floating" is a pill below it.</description>
+    </key>
+    <key name="open-on-hover" type="b">
+      <default>true</default>
+      <summary>Open on hover</summary>
+      <description>Expand the island while the pointer rests on it.</description>
+    </key>
     <key name="show-when-idle" type="b">
       <default>false</default>
       <summary>Show the island when idle</summary>
@@ -10,7 +24,7 @@
       <range min="-40" max="120"/>
       <default>6</default>
       <summary>Vertical offset</summary>
-      <description>Distance between the bottom of the top bar and the island, in pixels.</description>
+      <description>Distance between the bottom of the top bar and the floating island, in pixels.</description>
     </key>
     <key name="animation-style" type="s">
       <choices>

@@ -177,6 +177,19 @@ describe("IslandEngine", () => {
     expect(engine.state.expanded).toBe(false);
   });
 
+  it("expand opens expandable live content only", () => {
+    engine.expand();
+    expect(engine.state.expanded).toBe(false);
+    engine.showLive(live("media", 0, { expandable: true }));
+    engine.expand();
+    engine.expand();
+    expect(engine.state.expanded).toBe(true);
+    engine.showTemporary({ id: "volume" }, 500);
+    engine.collapse();
+    sched.advance(500);
+    expect(engine.state.expanded).toBe(false);
+  });
+
   it("does not emit when nothing visible changed", () => {
     engine.showLive(live("media", 50));
     const count = emitted.length;

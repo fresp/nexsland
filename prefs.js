@@ -13,6 +13,7 @@ import {
 } from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
+const ISLAND_STYLES = ["attached", "floating"];
 
 export default class NexslandPreferences extends ExtensionPreferences {
   fillPreferencesWindow(window) {
@@ -26,6 +27,20 @@ export default class NexslandPreferences extends ExtensionPreferences {
 
     const island = new Adw.PreferencesGroup({ title: _("Island") });
     island.add(
+      this._combo(settings, "island-style", _("Style"), ISLAND_STYLES, [
+        _("Attached to top bar"),
+        _("Floating pill"),
+      ]),
+    );
+    island.add(
+      this._switch(
+        settings,
+        "open-on-hover",
+        _("Open on hover"),
+        _("Expand while the pointer rests on the island"),
+      ),
+    );
+    island.add(
       this._switch(
         settings,
         "show-when-idle",
@@ -36,28 +51,19 @@ export default class NexslandPreferences extends ExtensionPreferences {
 
     const offset = new Adw.SpinRow({
       title: _("Vertical offset"),
-      subtitle: _("Distance below the top bar, in pixels"),
+      subtitle: _("Floating style only: distance below the top bar, in pixels"),
       adjustment: new Gtk.Adjustment({ lower: -40, upper: 120, step_increment: 1 }),
     });
     settings.bind("vertical-offset", offset, "value", Gio.SettingsBindFlags.DEFAULT);
     island.add(offset);
 
-    const style = new Adw.ComboRow({
-      title: _("Animation style"),
-      model: Gtk.StringList.new([_("Bouncy"), _("Smooth"), _("Snappy")]),
-    });
-    const syncStyle = () => {
-      style.selected = Math.max(
-        0,
-        ANIMATION_STYLES.indexOf(settings.get_string("animation-style")),
-      );
-    };
-    syncStyle();
-    style.connect("notify::selected", () => {
-      settings.set_string("animation-style", ANIMATION_STYLES[style.selected] ?? "bouncy");
-    });
-    settings.connect("changed::animation-style", syncStyle);
-    island.add(style);
+    island.add(
+      this._combo(settings, "animation-style", _("Animation style"), ANIMATION_STYLES, [
+        _("Bouncy"),
+        _("Smooth"),
+        _("Snappy"),
+      ]),
+    );
     page.add(island);
 
     const activities = new Adw.PreferencesGroup({ title: _("Activities") });
@@ -78,6 +84,20 @@ export default class NexslandPreferences extends ExtensionPreferences {
     page.add(debug);
 
     window.add(page);
+  }
+
+  /** Combo row bound to a string key whose values are `values`, shown as `labels`. */
+  _combo(settings, key, title, values, labels) {
+    const row = new Adw.ComboRow({ title, model: Gtk.StringList.new(labels) });
+    const sync = () => {
+      row.selected = Math.max(0, values.indexOf(settings.get_string(key)));
+    };
+    sync();
+    row.connect("notify::selected", () =>
+      settings.set_string(key, values[row.selected] ?? values[0]),
+    );
+    settings.connect(`changed::${key}`, sync);
+    return row;
   }
 
   _switch(settings, key, title, subtitle) {

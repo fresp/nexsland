@@ -8,7 +8,8 @@ Nexsland is a GNOME Shell extension (GNOME 45–51, X11 and Wayland) that render
 ## Layout
 
 - `lib/engine/` — GI-free core: `engine.js` decides what is shown (live activities with
-  priority + dismiss/restore, queued temporary HUDs); `spring.js` drives the morph animation.
+  priority + dismiss/restore, queued temporary HUDs); `spring.js` drives the morph animation;
+  `shape.js` is the island outline (attached notch with concave ears, or floating pill).
   Keep this directory free of `gi://` and `resource://` imports so it stays unit-testable.
 - `lib/extension/island.js` — the only actor. Renders engine state; owns no business logic.
 - `lib/providers/` — one module per activity source. A provider only calls

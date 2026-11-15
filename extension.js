@@ -27,8 +27,9 @@ export default class NexslandExtension extends Extension {
     // whatever was built before rethrowing.
     try {
       this._timers = new Set();
-      this._engine = new IslandEngine({ scheduler: this._makeScheduler() });
-      this._island = new Island({ engine: this._engine, settings: this._settings });
+      const scheduler = this._makeScheduler();
+      this._engine = new IslandEngine({ scheduler });
+      this._island = new Island({ engine: this._engine, settings: this._settings, scheduler });
       this._providers = new Map();
       this._signals = new SignalTracker();
       for (const key of Object.keys(PROVIDERS)) {
