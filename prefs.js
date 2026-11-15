@@ -12,6 +12,8 @@ import {
   gettext as _,
 } from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
+import { addBarPrefs } from "./lib/bar/prefs.js";
+
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
 const ISLAND_STYLES = ["attached", "floating"];
 const ISLAND_MONITORS = ["primary", "focused"];
@@ -165,7 +167,7 @@ export default class NexslandPreferences extends ExtensionPreferences {
         settings,
         "enable-bar",
         _("Theme the top bar"),
-        _("Off by default; detailed Bar settings are not in this window yet"),
+        _("Off by default; style it on the Top bar page"),
       ),
     );
     page.add(bar);
@@ -199,6 +201,12 @@ export default class NexslandPreferences extends ExtensionPreferences {
     page.add(debug);
 
     window.add(page);
+
+    // Top bar page: Open Bar's settings UI, for the Bar module.
+    addBarPrefs(window, {
+      settings: this.getSettings("org.gnome.shell.extensions.nexsland.bar"),
+      path: `${this.path}/lib/bar`,
+    });
   }
 
   /** Combo row bound to a string key whose values are `values`, shown as `labels`. */
