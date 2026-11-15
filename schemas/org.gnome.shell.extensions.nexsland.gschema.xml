@@ -120,6 +120,46 @@
       <summary>Timer tab</summary>
       <description>Countdown timer tab, shown as a live activity while it runs.</description>
     </key>
+    <key name="pomodoro-focus-minutes" type="i">
+      <range min="1" max="180"/>
+      <default>25</default>
+      <summary>Pomodoro focus length</summary>
+      <description>Minutes of one focus round in the Timer tab's Pomodoro mode.</description>
+    </key>
+    <key name="pomodoro-break-minutes" type="i">
+      <range min="1" max="60"/>
+      <default>5</default>
+      <summary>Pomodoro break length</summary>
+      <description>Minutes of the break between two focus rounds.</description>
+    </key>
+    <key name="pomodoro-long-break-minutes" type="i">
+      <range min="1" max="120"/>
+      <default>15</default>
+      <summary>Pomodoro long break length</summary>
+      <description>Minutes of the break after the last focus round.</description>
+    </key>
+    <key name="pomodoro-rounds" type="i">
+      <range min="1" max="12"/>
+      <default>4</default>
+      <summary>Pomodoro rounds</summary>
+      <description>Focus rounds before the long break.</description>
+    </key>
+    <key name="enable-today" type="b">
+      <default>true</default>
+      <summary>Today tab</summary>
+      <description>A checklist for the day. A task with a time is shown on the island when it is due.</description>
+    </key>
+    <key name="today-remind-before" type="i">
+      <range min="0" max="120"/>
+      <default>10</default>
+      <summary>Early reminder</summary>
+      <description>Minutes before a task's time to announce it. 0 turns the early reminder off.</description>
+    </key>
+    <key name="today-tasks" type="s">
+      <default>'[]'</default>
+      <summary>Today's tasks</summary>
+      <description>The Today tab's list, as JSON. Edited from the island, not by hand.</description>
+    </key>
     <key name="enable-calendar" type="b">
       <default>true</default>
       <summary>Calendar tab</summary>
