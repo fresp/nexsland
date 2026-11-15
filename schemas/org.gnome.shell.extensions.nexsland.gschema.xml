@@ -189,7 +189,7 @@
     <key name="enable-bar" type="b">
       <default>false</default>
       <summary>Theme the top bar</summary>
-      <description>Style the top bar, menus, dash and shell with the Bar module (continued from Open Bar). Off by default so installing Nexsland does not restyle the shell.</description>
+      <description>Style the top bar and its buttons with the Bar module (continued from Open Bar). Off by default so installing Nexsland does not restyle the shell.</description>
     </key>
     <key name="island-follow-bar" type="b">
       <default>true</default>
