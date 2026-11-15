@@ -302,3 +302,127 @@
   background-color: #ffffff;
   color: #000000;
 }
+
+/* Timer. */
+.nexsland-timer {
+  spacing: 10px;
+}
+
+.nexsland-timer-time {
+  font-size: 40px;
+  font-weight: bold;
+  font-feature-settings: "tnum";
+  color: #f2c14e;
+}
+
+.nexsland-timer-icon,
+.nexsland-timer-chip-time {
+  color: #f2c14e;
+}
+
+.nexsland-timer-chip-time {
+  font-size: 15px;
+  font-weight: bold;
+  font-feature-settings: "tnum";
+}
+
+/* System stats. */
+.nexsland-stats {
+  spacing: 14px;
+  padding-top: 12px;
+}
+
+.nexsland-stat-row {
+  spacing: 12px;
+}
+
+.nexsland-stat-title {
+  width: 72px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nexsland-stat-value {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-feature-settings: "tnum";
+}
+
+/* Calendar. */
+.nexsland-calendar {
+  spacing: 28px;
+  padding-top: 4px;
+}
+
+.nexsland-calendar-summary {
+  spacing: 0;
+  width: 140px;
+}
+
+.nexsland-calendar-weekday {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5384a;
+}
+
+.nexsland-calendar-day {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.nexsland-calendar-month {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.nexsland-calendar-week {
+  spacing: 2px;
+}
+
+.nexsland-calendar-cell {
+  width: 30px;
+  height: 18px;
+  font-size: 11px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.nexsland-calendar-cell.header {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.nexsland-calendar-cell.outside {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.nexsland-calendar-cell.today {
+  background-color: #e5384a;
+  font-weight: bold;
+}
+
+/* Clipboard. */
+.nexsland-clipboard {
+  spacing: 6px;
+}
+
+.nexsland-clipboard-note,
+.nexsland-clipboard-empty {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-clipboard-list {
+  spacing: 2px;
+}
+
+.nexsland-clipboard-item {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.nexsland-clipboard-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -76,6 +76,26 @@
       <summary>Microphone in use</summary>
       <description>Show which apps are recording from the microphone.</description>
     </key>
+    <key name="enable-timer" type="b">
+      <default>true</default>
+      <summary>Timer tab</summary>
+      <description>Countdown timer tab, shown as a live activity while it runs.</description>
+    </key>
+    <key name="enable-calendar" type="b">
+      <default>true</default>
+      <summary>Calendar tab</summary>
+      <description>Today's date and a month grid.</description>
+    </key>
+    <key name="enable-stats" type="b">
+      <default>true</default>
+      <summary>System tab</summary>
+      <description>CPU, memory and network throughput, read only while the tab is open.</description>
+    </key>
+    <key name="enable-clipboard" type="b">
+      <default>false</default>
+      <summary>Clipboard tab</summary>
+      <description>Recent text copies kept in memory only. Off by default for privacy.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>

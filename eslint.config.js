@@ -19,6 +19,7 @@ const extensionGlobals = {
   logError: "readonly",
   setTimeout: "readonly",
   clearTimeout: "readonly",
+  TextDecoder: "readonly",
 };
 
 export default [

@@ -123,6 +123,23 @@ export default class NexslandPreferences extends ExtensionPreferences {
     );
     page.add(activities);
 
+    const tabs = new Adw.PreferencesGroup({
+      title: _("Panel tabs"),
+      description: _("Shown when the island opens, after Home"),
+    });
+    tabs.add(this._switch(settings, "enable-timer", _("Timer"), _("Countdown with presets")));
+    tabs.add(this._switch(settings, "enable-calendar", _("Calendar"), _("Today and the month")));
+    tabs.add(this._switch(settings, "enable-stats", _("System"), _("CPU, memory and network")));
+    tabs.add(
+      this._switch(
+        settings,
+        "enable-clipboard",
+        _("Clipboard history"),
+        _("Recent text copies, kept in memory only; password manager copies are skipped"),
+      ),
+    );
+    page.add(tabs);
+
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });
     debug.add(
       this._switch(

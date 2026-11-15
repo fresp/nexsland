@@ -16,10 +16,17 @@ import { NetworkProvider } from "./lib/providers/network.js";
 import { DndProvider } from "./lib/providers/dnd.js";
 import { RecordingProvider } from "./lib/providers/recording.js";
 import { PrivacyProvider } from "./lib/providers/privacy.js";
+import { CalendarFeature } from "./lib/features/calendar.js";
+import { ClipboardFeature } from "./lib/features/clipboard.js";
+import { StatsFeature } from "./lib/features/stats.js";
+import { TimerFeature } from "./lib/features/timer.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
-/** Providers that can be toggled from prefs: settings key -> constructor. */
+/**
+ * Everything that can be toggled from prefs: settings key -> constructor.
+ * Instances with a `tab` also add a panel tab, in this order.
+ */
 const PROVIDERS = {
   "enable-media": MprisProvider,
   "enable-osd": OsdProvider,
@@ -29,6 +36,10 @@ const PROVIDERS = {
   "enable-dnd": DndProvider,
   "enable-recording": RecordingProvider,
   "enable-privacy": PrivacyProvider,
+  "enable-timer": TimerFeature,
+  "enable-calendar": CalendarFeature,
+  "enable-stats": StatsFeature,
+  "enable-clipboard": ClipboardFeature,
 };
 
 export default class NexslandExtension extends Extension {
@@ -47,9 +58,13 @@ export default class NexslandExtension extends Extension {
       this._providers = new Map();
       this._signals = new SignalTracker();
       for (const key of Object.keys(PROVIDERS)) {
-        this._signals.track(this._settings, `changed::${key}`, () => this._syncProvider(key));
+        this._signals.track(this._settings, `changed::${key}`, () => {
+          this._syncProvider(key);
+          this._syncTabs();
+        });
         this._syncProvider(key);
       }
+      this._syncTabs();
     } catch (e) {
       try {
         this.disable();
@@ -97,6 +112,13 @@ export default class NexslandExtension extends Extension {
       running.destroy();
       this._providers.delete(key);
     }
+  }
+
+  _syncTabs() {
+    const tabs = Object.keys(PROVIDERS)
+      .map((key) => this._providers.get(key)?.tab)
+      .filter(Boolean);
+    this._island?.setTabs(tabs);
   }
 
   /** GLib-backed timers owned by the extension, so disable() can remove any still pending. */
