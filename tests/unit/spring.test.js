@@ -29,13 +29,13 @@ describe("Spring", () => {
     });
   }
 
-  it("bouncy overshoots a little, smooth does not", () => {
+  it("bouncy overshoots visibly but stays bounded, smooth does not", () => {
     const bouncy = new Spring(0, SPRING_PRESETS.bouncy);
     bouncy.target = 100;
-    expect(run(bouncy).peak).toBeGreaterThan(100);
+    expect(run(bouncy).peak).toBeGreaterThan(108);
     expect(
       run(Object.assign(new Spring(0, SPRING_PRESETS.bouncy), { target: 100 })).peak,
-    ).toBeLessThan(115);
+    ).toBeLessThan(120);
 
     const smooth = new Spring(0, SPRING_PRESETS.smooth);
     smooth.target = 100;
