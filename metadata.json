@@ -5,5 +5,6 @@
   "settings-schema": "org.gnome.shell.extensions.nexsland",
   "gettext-domain": "nexsland",
   "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
-  "url": "https://github.com/fresp/nexsland"
+  "url": "https://github.com/fresp/nexsland",
+  "session-modes": ["user", "unlock-dialog"]
 }

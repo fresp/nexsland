@@ -24,6 +24,11 @@
       <summary>Open on hover</summary>
       <description>Expand the island while the pointer rests on it.</description>
     </key>
+    <key name="show-on-lock-screen" type="b">
+      <default>false</default>
+      <summary>Show on the lock screen</summary>
+      <description>Keep activities and HUDs visible while the screen is locked. The panel and its tabs never open on the lock screen.</description>
+    </key>
     <key name="show-when-idle" type="b">
       <default>false</default>
       <summary>Show the island when idle</summary>

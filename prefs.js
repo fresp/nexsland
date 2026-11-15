@@ -42,6 +42,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     island.add(
       this._switch(
         settings,
+        "show-on-lock-screen",
+        _("Show on lock screen"),
+        _("Activities and HUDs only; the panel never opens while locked"),
+      ),
+    );
+    island.add(
+      this._switch(
+        settings,
         "open-on-hover",
         _("Open on hover"),
         _("Expand while the pointer rests on the island"),
