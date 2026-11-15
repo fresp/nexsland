@@ -309,6 +309,7 @@
 }
 
 .nexsland-clock-face-text {
+  max-width: 280px;
   font-size: 13px;
   font-weight: 500;
 }
@@ -338,6 +339,11 @@
   font-size: 18px;
   font-weight: bold;
   font-feature-settings: "tnum";
+}
+
+.nexsland-panel-clock-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .nexsland-panel-clock-date {
@@ -678,6 +684,7 @@
 
 .nexsland-island.light .nexsland-clock-date,
 .nexsland-island.light .nexsland-panel-clock-date,
+.nexsland-island.light .nexsland-panel-clock-text,
 .nexsland-island.light .nexsland-calendar-month {
   color: rgba(0, 0, 0, 0.65);
 }
