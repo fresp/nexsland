@@ -186,3 +186,8 @@
 .nexsland-tone-alert .nexsland-batt-fill {
   background-color: #ff6b7a;
 }
+
+.nexsland-hud-detail {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}

@@ -11,6 +11,7 @@ import { Island } from "./lib/extension/island.js";
 import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
 import { OsdProvider } from "./lib/providers/osd.js";
+import { BluetoothProvider } from "./lib/providers/bluetooth.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
@@ -19,6 +20,7 @@ const PROVIDERS = {
   "enable-media": MprisProvider,
   "enable-osd": OsdProvider,
   "enable-battery": BatteryProvider,
+  "enable-bluetooth": BluetoothProvider,
 };
 
 export default class NexslandExtension extends Extension {
@@ -31,7 +33,7 @@ export default class NexslandExtension extends Extension {
     // whatever was built before rethrowing.
     try {
       this._timers = new Set();
-      const scheduler = this._makeScheduler();
+      const scheduler = (this._scheduler = this._makeScheduler());
       this._engine = new IslandEngine({ scheduler });
       this._island = new Island({ engine: this._engine, settings: this._settings, scheduler });
       this._providers = new Map();
@@ -62,6 +64,7 @@ export default class NexslandExtension extends Extension {
     this._engine = null;
     for (const id of this._timers ?? []) GLib.source_remove(id);
     this._timers = null;
+    this._scheduler = null;
     this._settings = null;
     Logger.destroy();
   }
@@ -75,6 +78,7 @@ export default class NexslandExtension extends Extension {
           key,
           new PROVIDERS[key]({
             engine: this._engine,
+            scheduler: this._scheduler,
             canPresent: () => this._island?.canPresent() ?? false,
           }),
         );

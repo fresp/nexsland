@@ -86,6 +86,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Charging, unplugged, fully charged and low battery"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-bluetooth",
+        _("Bluetooth"),
+        _("Devices connecting and disconnecting"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });
