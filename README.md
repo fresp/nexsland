@@ -69,13 +69,13 @@ rules.
 
 ## Roadmap
 
-| Phase | Scope                                                                                                    |
-| ----- | -------------------------------------------------------------------------------------------------------- |
-| 0     | Engine, spring morph, island surface, Now Playing (MPRIS). Validate animation cost and geometry.         |
-| 0.1   | Volume/brightness OSD in the island, battery and charging HUDs (UPower). First EGO submission.           |
-| 0.2   | Bluetooth, Wi-Fi and VPN events, Do Not Disturb, screen-recording and camera/mic indicators.             |
-| 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures. |
-| 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                          |
+| Phase | Scope                                                                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------ |
+| 0     | Engine, spring morph, island surface, Now Playing (MPRIS). Validate animation cost and geometry.                   |
+| 0.1   | Volume/brightness OSD in the island, battery and charging HUDs (UPower). First EGO submission.                     |
+| 0.2   | Bluetooth, Wi-Fi and VPN events, Do Not Disturb, screen-recording and mic indicators (code done; camera deferred). |
+| 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures.           |
+| 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                                    |
 
 Open design question: whether the island should eventually take over the clock slot in the
 top bar. It currently hangs just below the bar, so the clock stays where it is.
