@@ -210,4 +210,24 @@ describe("IslandEngine", () => {
     engine.showLive(live("media"));
     expect(seen).toEqual([]);
   });
+
+  it("looks up a live activity by id", () => {
+    const engine = new IslandEngine({ scheduler: { setTimeout: () => 1, clearTimeout: () => {} } });
+    expect(engine.liveContent("media")).toBe(null);
+    engine.showLive({ id: "media", track: { title: "Song" } });
+    expect(engine.liveContent("media").track.title).toBe("Song");
+    engine.hideLive("media");
+    expect(engine.liveContent("media")).toBe(null);
+  });
+
+  it("knows whether a temporary is shown or queued", () => {
+    const engine = new IslandEngine({ scheduler: { setTimeout: () => 1, clearTimeout: () => {} } });
+    engine.showTemporary({ id: "a" }, 1000);
+    engine.showTemporary({ id: "b" }, 1000);
+    expect(engine.hasTemporary("a")).toBe(true);
+    expect(engine.hasTemporary("b")).toBe(true);
+    engine.dismiss();
+    expect(engine.hasTemporary("a")).toBe(false);
+    expect(engine.hasTemporary("b")).toBe(true);
+  });
 });

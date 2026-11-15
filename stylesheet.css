@@ -577,6 +577,22 @@
   color: #000000;
 }
 
+/* Notification banners. */
+.nexsland-banner {
+  spacing: 10px;
+  padding: 0 14px 0 10px;
+}
+
+.nexsland-banner-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nexsland-banner-body {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 /* NexTile tab. */
 .nexsland-nextile {
   spacing: 8px;
@@ -598,6 +614,7 @@
 }
 
 .nexsland-island.light .nexsland-notification-body,
+.nexsland-island.light .nexsland-banner-body,
 .nexsland-island.light .nexsland-media-artist,
 .nexsland-island.light .nexsland-hud-detail,
 .nexsland-island.light .nexsland-stat-value,

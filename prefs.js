@@ -135,6 +135,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     activities.add(
       this._switch(
         settings,
+        "enable-banners",
+        _("Notifications"),
+        _("Notification banners in the island instead of GNOME's"),
+      ),
+    );
+    activities.add(
+      this._switch(
+        settings,
         "enable-recording",
         _("Screen recording"),
         _("Elapsed time and a stop button while recording"),

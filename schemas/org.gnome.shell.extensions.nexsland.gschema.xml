@@ -85,6 +85,11 @@
       <summary>Do Not Disturb</summary>
       <description>Show Do Not Disturb being turned on and off.</description>
     </key>
+    <key name="enable-banners" type="b">
+      <default>true</default>
+      <summary>Notifications in the island</summary>
+      <description>Show notification banners in the island instead of GNOME's own banners.</description>
+    </key>
     <key name="enable-recording" type="b">
       <default>true</default>
       <summary>Screen recording</summary>

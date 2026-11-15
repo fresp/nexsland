@@ -11,6 +11,7 @@ import { IslandEngine } from "./lib/engine/engine.js";
 import { themeFromBar } from "./lib/engine/island-theme.js";
 import { ClockTakeover } from "./lib/extension/clock.js";
 import { Island } from "./lib/extension/island.js";
+import { BannersProvider } from "./lib/providers/banners.js";
 import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
 import { OsdProvider } from "./lib/providers/osd.js";
@@ -61,6 +62,7 @@ const PROVIDERS = {
   "enable-bluetooth": BluetoothProvider,
   "enable-network": NetworkProvider,
   "enable-dnd": DndProvider,
+  "enable-banners": BannersProvider,
   "enable-recording": RecordingProvider,
   "enable-privacy": PrivacyProvider,
   "enable-notifications": NotificationsFeature,
