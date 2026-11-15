@@ -168,21 +168,21 @@ import { mergedPlacement } from "../../lib/engine/placement.js";
 describe("mergedPlacement", () => {
   const anchor = { x: 870, y: 7, width: 180, height: 35 };
 
-  it("hangs from the pill's middle, as wide as the pill when idle", () => {
-    expect(mergedPlacement({ anchor, width: 140 })).toEqual({
-      overlap: 18,
+  it("covers the pill, as wide as it when idle", () => {
+    expect(mergedPlacement({ anchor, width: 0 })).toEqual({
+      overlap: 35,
+      cap: { x: 0, width: 180, height: 18 },
       width: 180,
       x: 870,
-      y: 24,
-      squareTop: true,
+      y: 7,
     });
   });
 
-  it("widens around the pill, centred, with rounded top corners", () => {
+  it("widens around the pill, centred", () => {
     expect(mergedPlacement({ anchor, width: 300 })).toMatchObject({
       width: 300,
       x: 810,
-      squareTop: false,
+      cap: { x: 60, width: 180 },
     });
   });
 });

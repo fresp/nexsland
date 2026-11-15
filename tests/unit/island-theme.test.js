@@ -94,19 +94,45 @@ describe("islandOutline", () => {
 });
 
 describe("merged shape", () => {
-  it("is a rounded rectangle with separate top and bottom radii", () => {
-    const cmds = islandPath({ width: 180, height: 26, radius: 18, topRadius: 0, style: "merged" });
-    expect(cmds[0]).toEqual({ op: "move", x: 0, y: 0 }); // square top-left
-    const bottomArcs = cmds.filter((c) => c.op === "arc" && c.r === 18);
-    expect(bottomArcs.length).toBe(2);
-    expect(
-      islandOutline({ width: 180, height: 26, radius: 18, topRadius: 0, style: "merged" }),
-    ).toEqual(cmds);
+  const cap = { x: 0, width: 180, height: 18 };
+
+  it("is one capsule when as wide as the pill", () => {
+    const cmds = islandPath({ width: 180, height: 42, radius: 18, style: "merged", cap });
+    expect(cmds[0]).toEqual({ op: "move", x: 18, y: 0 });
+    // Pill ends and bottom corners all have the pill's radius; no body top corners.
+    const radii = cmds.filter((c) => c.op === "arc").map((c) => c.r);
+    expect(radii).toEqual([18, 0, 18, 18, 0, 18]);
+    expect(islandOutline({ width: 180, height: 42, radius: 18, style: "merged", cap })).toEqual(
+      cmds,
+    );
   });
 
-  it("gives the top corners what height the bottom ones leave", () => {
-    const cmds = islandPath({ width: 300, height: 30, radius: 20, topRadius: 20, style: "merged" });
-    const radii = cmds.filter((c) => c.op === "arc").map((c) => c.r);
-    expect(radii).toEqual([10, 20, 20, 10]);
+  it("puts the pill on a wider body whose top corners show beside it", () => {
+    const wide = { x: 60, width: 180, height: 18 };
+    const cmds = islandPath({
+      width: 300,
+      height: 190,
+      radius: 24,
+      topRadius: 24,
+      style: "merged",
+      cap: wide,
+    });
+    expect(cmds[0]).toEqual({ op: "move", x: 78, y: 0 });
+    // The pill's right end ends at (240, 18), where the body's top edge carries on.
+    expect(cmds[2]).toEqual({ op: "arc", xc: 222, yc: 18, r: 18, a1: -Math.PI / 2, a2: 0 });
+    expect(cmds[3]).toEqual({ op: "line", x: 276, y: 18 });
+    expect(cmds.filter((c) => c.op === "arc").map((c) => c.r)).toEqual([18, 24, 24, 24, 24, 18]);
+  });
+
+  it("limits the body's top corners to the room beside the pill", () => {
+    const cmds = islandPath({
+      width: 190,
+      height: 60,
+      radius: 20,
+      topRadius: 20,
+      style: "merged",
+      cap: { x: 5, width: 180, height: 18 },
+    });
+    expect(cmds.filter((c) => c.op === "arc").map((c) => c.r)).toEqual([18, 5, 20, 20, 5, 18]);
   });
 });
