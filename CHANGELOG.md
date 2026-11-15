@@ -18,6 +18,10 @@
   timer, until it is ticked or snoozed for ten minutes. When the day changes, ticked tasks
   are dropped and the rest carry over without a time. The list is stored in GSettings.
 
+### Fixed
+
+- Hovering the island let its content spread sideways, under the ears and up to the edges.
+
 ## 0.2.0 (2026-11-15)
 
 ### Added
