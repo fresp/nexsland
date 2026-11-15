@@ -105,6 +105,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("When Do Not Disturb is turned on or off"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-recording",
+        _("Screen recording"),
+        _("Elapsed time and a stop button while recording"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });

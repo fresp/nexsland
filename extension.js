@@ -14,6 +14,7 @@ import { OsdProvider } from "./lib/providers/osd.js";
 import { BluetoothProvider } from "./lib/providers/bluetooth.js";
 import { NetworkProvider } from "./lib/providers/network.js";
 import { DndProvider } from "./lib/providers/dnd.js";
+import { RecordingProvider } from "./lib/providers/recording.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
@@ -25,6 +26,7 @@ const PROVIDERS = {
   "enable-bluetooth": BluetoothProvider,
   "enable-network": NetworkProvider,
   "enable-dnd": DndProvider,
+  "enable-recording": RecordingProvider,
 };
 
 export default class NexslandExtension extends Extension {

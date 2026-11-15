@@ -191,3 +191,33 @@
   font-size: 12px;
   color: rgba(255, 255, 255, 0.72);
 }
+
+/* Live chips: screen recording, microphone in use. */
+.nexsland-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e5384a;
+}
+
+.nexsland-rec-time {
+  font-feature-settings: "tnum";
+}
+
+.nexsland-rec-stop {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #3a1d22;
+}
+
+.nexsland-rec-stop:hover {
+  background-color: #5a2830;
+}
+
+.nexsland-rec-stop-glyph {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background-color: #ff6b7a;
+}
