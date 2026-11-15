@@ -426,3 +426,14 @@
 .nexsland-clipboard-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* NexTile tab. */
+.nexsland-nextile {
+  spacing: 12px;
+}
+
+.nexsland-nextile-status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}

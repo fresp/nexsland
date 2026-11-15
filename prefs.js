@@ -144,6 +144,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Browser downloads in progress and finished"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-nextile",
+        _("NexTile"),
+        _("Tiling changes and a Tiling tab; needs External control on in NexTile"),
+      ),
+    );
     page.add(activities);
 
     const tabs = new Adw.PreferencesGroup({

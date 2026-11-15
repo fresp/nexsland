@@ -17,6 +17,7 @@ import { DndProvider } from "./lib/providers/dnd.js";
 import { RecordingProvider } from "./lib/providers/recording.js";
 import { PrivacyProvider } from "./lib/providers/privacy.js";
 import { DownloadsProvider } from "./lib/providers/downloads.js";
+import { NexTileProvider } from "./lib/providers/nextile.js";
 import { CalendarFeature } from "./lib/features/calendar.js";
 import { ClipboardFeature } from "./lib/features/clipboard.js";
 import { StatsFeature } from "./lib/features/stats.js";
@@ -42,6 +43,7 @@ const PROVIDERS = {
   "enable-stats": StatsFeature,
   "enable-clipboard": ClipboardFeature,
   "enable-downloads": DownloadsProvider,
+  "enable-nextile": NexTileProvider,
 };
 
 export default class NexslandExtension extends Extension {
@@ -105,6 +107,7 @@ export default class NexslandExtension extends Extension {
             engine: this._engine,
             scheduler: this._scheduler,
             canPresent: (monitorIndex) => this._island?.canPresent(monitorIndex) ?? false,
+            invalidateTabs: () => this._syncTabs(),
           }),
         );
       } catch (e) {

@@ -115,6 +115,11 @@
       <summary>Downloads</summary>
       <description>Show browser downloads in progress in the Downloads folder, and when they finish.</description>
     </key>
+    <key name="enable-nextile" type="b">
+      <default>true</default>
+      <summary>NexTile</summary>
+      <description>Show NexTile tiling changes and add a Tiling tab. Needs External control turned on in NexTile.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>
