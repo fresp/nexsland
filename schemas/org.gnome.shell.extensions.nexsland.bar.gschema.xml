@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="openbar">
-  <schema id="org.gnome.shell.extensions.openbar" path="/org/gnome/shell/extensions/openbar/">
+<schemalist gettext-domain="nexsland">
+  <!-- Open Bar's settings (neuromorph/openbar), kept key-for-key as a child schema of Nexsland. -->
+  <schema id="org.gnome.shell.extensions.nexsland.bar" path="/org/gnome/shell/extensions/nexsland/bar/">
 
     <key type="s" name="bartype">
       <default>"Floating"</default>

@@ -156,6 +156,20 @@ export default class NexslandPreferences extends ExtensionPreferences {
     );
     page.add(activities);
 
+    const bar = new Adw.PreferencesGroup({
+      title: _("Top bar"),
+      description: _("Bar, menu, dash and shell theming, continued from Open Bar"),
+    });
+    bar.add(
+      this._switch(
+        settings,
+        "enable-bar",
+        _("Theme the top bar"),
+        _("Off by default; detailed Bar settings are not in this window yet"),
+      ),
+    );
+    page.add(bar);
+
     const tabs = new Adw.PreferencesGroup({
       title: _("Panel tabs"),
       description: _("Shown when the island opens, after Home"),

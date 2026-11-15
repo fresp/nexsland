@@ -69,6 +69,8 @@ export default class NexslandExtension extends Extension {
         this._syncProvider(key);
       }
       this._syncTabs();
+      this._signals.track(this._settings, "changed::enable-bar", () => this._syncBar());
+      this._syncBar();
     } catch (e) {
       try {
         this.disable();
@@ -83,6 +85,8 @@ export default class NexslandExtension extends Extension {
     Logger.info("disable");
     this._signals?.disconnectAll();
     this._signals = null;
+    this._barGeneration = (this._barGeneration ?? 0) + 1; // cancels a pending lazy load
+    this._stopBar();
     for (const provider of this._providers?.values() ?? []) provider.destroy();
     this._providers = null;
     this._island?.teardown();
@@ -117,6 +121,45 @@ export default class NexslandExtension extends Extension {
       running.destroy();
       this._providers.delete(key);
     }
+  }
+
+  /**
+   * Top bar theming (lib/bar, continued from Open Bar). Loaded lazily: when it is
+   * off, none of its code runs, and its module-scope setup never happens before
+   * enable().
+   */
+  async _syncBar() {
+    const wanted = this._settings?.get_boolean("enable-bar") ?? false;
+    if (!wanted) {
+      this._barGeneration = (this._barGeneration ?? 0) + 1;
+      this._stopBar();
+      return;
+    }
+    if (this._bar) return;
+    const generation = (this._barGeneration = (this._barGeneration ?? 0) + 1);
+    try {
+      const { OpenBar } = await import("./lib/bar/bar.js");
+      // Disabled, or the setting flipped, while the module was loading.
+      if (generation !== this._barGeneration || !this._settings || this._bar) return;
+      this._bar = new OpenBar({
+        settings: this.getSettings("org.gnome.shell.extensions.nexsland.bar"),
+        path: `${this.path}/lib/bar`,
+      });
+      this._bar.enable();
+    } catch (e) {
+      Logger.error(`bar: failed to start: ${e}`);
+      this._stopBar();
+    }
+  }
+
+  _stopBar() {
+    if (!this._bar) return;
+    try {
+      this._bar.disable();
+    } catch (e) {
+      Logger.error(`bar: failed to stop cleanly: ${e}`);
+    }
+    this._bar = null;
   }
 
   _syncTabs() {
