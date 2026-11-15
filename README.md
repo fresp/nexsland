@@ -11,8 +11,8 @@ system HUDs and live activities. Like a notch, it hangs from the top bar: slim w
 something is happening, opening into a full panel when you hover it, with spring physics
 throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 
-> **Status: Phase 0.2.** Now Playing, OSD, battery, connectivity, screen recording and
-> microphone activities are in place; none of it has been tested on a real shell yet.
+> **Status: Phase 0.3.** Activities, HUDs and the tabbed panel are in place; none of it has
+> been tested on a real shell yet.
 > Expect rough edges; not yet published on extensions.gnome.org.
 
 ## Features
@@ -22,7 +22,10 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Temporary HUDs** that briefly preempt live activities and queue in order.
 - **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
   corners. A floating pill style is available in Preferences.
-- **Open on hover** (or click); move away and it closes.
+- **Opens into a tabbed panel** on hover, click or scrolling down (scroll up closes, sideways
+  switches tabs). Home shows the current activity, or a clock when idle.
+- **Panel tabs**: a countdown timer (a live activity while it runs), a calendar, system stats
+  (CPU, memory, network) and an opt-in clipboard history kept in memory only.
 - **Now Playing** from any MPRIS player: artwork on the left and live bars on the right
   while closed; large rounded artwork, track info and playback controls when open.
 - **Spring-driven morphing** that keeps momentum when content changes mid-animation, with
@@ -69,13 +72,13 @@ rules.
 
 ## Roadmap
 
-| Phase | Scope                                                                                                              |
-| ----- | ------------------------------------------------------------------------------------------------------------------ |
-| 0     | Engine, spring morph, island surface, Now Playing (MPRIS). Validate animation cost and geometry.                   |
-| 0.1   | Volume/brightness OSD in the island, battery and charging HUDs (UPower). First EGO submission.                     |
-| 0.2   | Bluetooth, Wi-Fi and VPN events, Do Not Disturb, screen-recording and mic indicators (code done; camera deferred). |
-| 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures.           |
-| 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                                    |
+| Phase | Scope                                                                                                                                          |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Engine, spring morph, island surface, Now Playing (MPRIS). Validate animation cost and geometry.                                               |
+| 0.1   | Volume/brightness OSD in the island, battery and charging HUDs (UPower). First EGO submission.                                                 |
+| 0.2   | Bluetooth, Wi-Fi and VPN events, Do Not Disturb, screen-recording and mic indicators (code done; camera deferred).                             |
+| 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures (code done; calendar events deferred). |
+| 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                                                                |
 
 Open design question: whether the island should eventually take over the clock slot in the
 top bar. It currently hangs just below the bar, so the clock stays where it is.
