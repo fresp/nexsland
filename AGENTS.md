@@ -18,7 +18,8 @@ Nexsland is a GNOME Shell extension (GNOME 46 and 51) that renders a morphing
 - `lib/bar/` — the Bar module: Open Bar's source (top bar, menu, dash and shell theming),
   vendored and adapted, loaded lazily when `enable-bar` is on. Its settings are the
   `org.gnome.shell.extensions.nexsland.bar` child schema. Mark every change to upstream code
-  with a `Nexsland:` comment. It is excluded from Prettier/ESLint until the port settles.
+  with a `Nexsland:` comment. It follows the same Prettier/ESLint rules as the rest, except
+  `no-useless-assignment` (upstream's dead initial stores are kept).
 - `extension.js` — lifecycle and provider toggles. `prefs.js` — Adw preferences.
 
 ## Rules
