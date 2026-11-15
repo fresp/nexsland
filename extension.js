@@ -150,7 +150,8 @@ export default class NexslandExtension extends Extension {
           new PROVIDERS[key]({
             engine: this._engine,
             scheduler: this._scheduler,
-            canPresent: (monitorIndex) => this._island?.canPresent(monitorIndex) ?? false,
+            canPresent: (monitorIndex, urgent) =>
+              this._island?.canPresent(monitorIndex, urgent) ?? false,
             invalidateTabs: () => this._syncTabs(),
           }),
         );
