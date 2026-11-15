@@ -15,8 +15,10 @@ designs informed its behavior.
 - Open Bar (https://github.com/neuromorph/openbar) by neuromorph,
   GPL-2.0-or-later / GPL-3.0. lib/bar/ is Open Bar's source (upstream commit
   01fb242, its GNOME 49 release), adapted to run as Nexsland's Bar module and
-  continued past GNOME 49. Changes are marked "Nexsland:" in the code. Its
-  GTK/Flatpak app theming is not included.
+  continued past GNOME 49, and cut down to styling the top bar and its island
+  buttons. Changes are marked "Nexsland:" in the code. Its menu, dash,
+  notification, wallpaper-palette and GTK/Flatpak theming, its preferences and
+  its media are not included.
 - NexTile (https://github.com/fresp/nexTile), GPL-3.0-or-later.
   Build, lint and logging scaffolding, and the no-untracked-connect ESLint rule.
 

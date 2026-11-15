@@ -1,40 +1,27 @@
 import { describe, expect, it } from "vitest";
 
-import { colorShade } from "../../lib/bar/utils.js";
+import { colorMix, getBgDark, getColorfulness, getHSP } from "../../lib/bar/utils.js";
 
-// Upstream Open Bar's colorShade, verbatim, as the reference behaviour.
-function upstreamColorShade(c, p) {
-  var i = parseInt,
-    r = Math.round,
-    [a, b, c, d] = c.split(","),
-    P = p < 0,
-    t = P ? 0 : 255 * p,
-    P = P ? 1 + p : 1 - p;
-  return (
-    "rgb" +
-    (d ? "a(" : "(") +
-    r(i(a[3] == "a" ? a.slice(5) : a.slice(4)) * P + t) +
-    "," +
-    r(i(b) * P + t) +
-    "," +
-    r(i(c) * P + t) +
-    (d ? "," + d : ")")
-  );
-}
+describe("bar colour helpers", () => {
+  it("measures perceived brightness from a triplet or separate channels", () => {
+    expect(getHSP([0, 0, 0])).toBe(0);
+    expect(getHSP([255, 255, 255])).toBeCloseTo(255);
+    expect(getHSP(10, 128, 250)).toBe(getHSP([10, 128, 250]));
+  });
 
-describe("colorShade", () => {
-  it("matches upstream for rgb and rgba input across shade amounts", () => {
-    const colors = [
-      "rgb(10,128,250)",
-      "rgb(0,0,0)",
-      "rgb(255,255,255)",
-      "rgba(40,80,120,0.5)",
-      "rgba(200,10,90,1)",
-    ];
-    for (const color of colors) {
-      for (const p of [-1, -0.6, -0.2, -0.05, 0, 0.05, 0.3, 0.75, 1]) {
-        expect(colorShade(color, p)).toBe(upstreamColorShade(color, p));
-      }
-    }
+  it("classifies Open Bar's default background as dark and white as light", () => {
+    expect(getBgDark(31, 31, 31)).toBe(true);
+    expect(getBgDark(255, 255, 255)).toBe(false);
+  });
+
+  it("mixes and clamps a channel", () => {
+    expect(colorMix(100, 200, 0.5)).toBe(150);
+    expect(colorMix(250, 200, -0.12)).toBe(255);
+    expect(colorMix(5, 200, -0.12)).toBe(0);
+  });
+
+  it("measures colourfulness as the channel spread", () => {
+    expect(getColorfulness([10, 10, 10])).toBe(0);
+    expect(getColorfulness([0, 128, 255])).toBe(255);
   });
 });
