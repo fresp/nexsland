@@ -11,7 +11,8 @@ system HUDs and live activities. Like a notch, it hangs from the top bar: slim w
 something is happening, opening into a full panel when you hover it, with spring physics
 throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 
-> **Status: Phase 0 (spike).** The engine, the morphing island and Now Playing are in place.
+> **Status: Phase 0.1.** The engine, the morphing island, Now Playing, OSD and battery HUDs
+> are in place.
 > Expect rough edges; not yet published on extensions.gnome.org.
 
 ## Features
@@ -27,6 +28,9 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Spring-driven morphing** that keeps momentum when content changes mid-animation, with
   bouncy (default, jelly-like), smooth and snappy presets. Honors GNOME's reduced-animation
   setting.
+- **Volume, microphone and brightness** in the island instead of the stock OSD, with a level
+  bar that updates in place. Falls back to the stock OSD whenever the island is not visible.
+- **Battery notices**: charging, unplugged, fully charged, low (20%) and critical (10%).
 - Hides in the overview and over fullscreen windows.
 
 ## Install from source
