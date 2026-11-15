@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- **Notch in the top bar** (Island > Style): the island sits in the bar itself, from its top
+  edge and as tall as the bar, showing the time in place of the bar's clock, and opens
+  downwards from there. Best with a Mainland bar; on an Islands or Trilands bar it merges
+  with the clock pill as before.
+
 ## 0.2.0 (2026-11-15)
 
 ### Added
@@ -50,5 +59,5 @@
 ### Fixed
 
 - Enabling on GNOME 51, which rejected a chrome parameter that GNOME 46 accepted.
-- Preferences failing to load with "doesn't provide an export named: '_pgettext'".
+- Preferences failing to load with "doesn't provide an export named: '\_pgettext'".
 - Errors at shell shutdown from handlers still connected to the panel and the clock.

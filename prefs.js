@@ -21,7 +21,7 @@ import {
 import { LookPage, comboRow, spinRow, switchRow } from "./lib/prefs/look.js";
 
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
-const ISLAND_STYLES = ["attached", "floating"];
+const ISLAND_STYLES = ["attached", "notch", "floating"];
 const ISLAND_MONITORS = ["primary", "focused"];
 
 /** The window's Adw.HeaderBar, found by walking its widget tree (it is not exposed). */
@@ -66,6 +66,7 @@ export default class NexslandPreferences extends ExtensionPreferences {
     island.add(
       comboRow(settings, "island-style", _("Style"), ISLAND_STYLES, [
         _("Attached to top bar"),
+        _("Notch in the top bar"),
         _("Floating pill"),
       ]),
     );

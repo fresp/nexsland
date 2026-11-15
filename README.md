@@ -21,7 +21,8 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
   Right/middle-click dismisses, and dismissed activities can be restored.
 - **Temporary HUDs** that briefly preempt live activities and queue in order.
 - **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
-  corners. A floating pill style is available in Preferences.
+  corners. Preferences also offer a notch that sits in the top bar itself, in place of the
+  clock, and a floating pill.
 - **Top bar styling** (optional, continued from Open Bar): Mainland, Floating, Islands and
   Trilands bars with your colours, border, neon glow, hover effect and shadow. The island
   follows the bar's look, and on an Islands bar it takes the clock pill's place.
