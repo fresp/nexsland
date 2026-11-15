@@ -11,8 +11,8 @@ system HUDs and live activities. Like a notch, it hangs from the top bar: slim w
 something is happening, opening into a full panel when you hover it, with spring physics
 throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 
-> **Status: Phase 0.3.** Activities, HUDs and the tabbed panel are in place; none of it has
-> been tested on a real shell yet.
+> **Status: Phase 0.4.** All roadmap features are written; none of it has been tested on a
+> real shell yet, which is the next step before a first release.
 > Expect rough edges; not yet published on extensions.gnome.org.
 
 ## Features
@@ -39,6 +39,13 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Screen recording** as a live activity with elapsed time and a stop button.
 - **Microphone in use**: which apps are recording, for as long as they do. Camera use is not
   covered yet.
+- **Downloads**: browser downloads in progress (name and bytes so far) and when they finish,
+  detected from partial files in the Downloads folder.
+- **NexTile integration**: HUDs for tiling, layout and floating changes, and a Tiling tab with
+  NexTile's actions. Needs External control turned on in NexTile.
+- **Multi-monitor**: on the primary monitor, or following the focused window's monitor.
+- **Lock screen (opt-in)**: activities and HUDs stay visible while locked; the panel never
+  opens there.
 - Hides in the overview and over fullscreen windows.
 
 ## Install from source
@@ -78,7 +85,7 @@ rules.
 | 0.1   | Volume/brightness OSD in the island, battery and charging HUDs (UPower). First EGO submission.                                                 |
 | 0.2   | Bluetooth, Wi-Fi and VPN events, Do Not Disturb, screen-recording and mic indicators (code done; camera deferred).                             |
 | 0.3   | Expanded panel tabs: timer, calendar, system stats, opt-in clipboard history. Hover and scroll gestures (code done; calendar events deferred). |
-| 0.4   | Lock-screen widgets, multi-monitor, downloads (heuristic), NexTile integration.                                                                |
+| 0.4   | Lock-screen visibility, multi-monitor, downloads (heuristic), NexTile integration (code done; untested).                                       |
 
 Open design question: whether the island should eventually take over the clock slot in the
 top bar. It currently hangs just below the bar, so the clock stays where it is.
