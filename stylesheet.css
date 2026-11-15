@@ -402,6 +402,111 @@
   font-feature-settings: "tnum";
 }
 
+/* Pomodoro: tomato while focusing, teal on a break; plain timers stay amber. */
+.nexsland-timer.focus .nexsland-timer-time,
+.nexsland-timer-chip.focus .nexsland-timer-icon,
+.nexsland-timer-chip.focus .nexsland-timer-chip-time {
+  color: #ff6a55;
+}
+
+.nexsland-timer.break .nexsland-timer-time,
+.nexsland-timer-chip.break .nexsland-timer-icon,
+.nexsland-timer-chip.break .nexsland-timer-chip-time {
+  color: #2fb8a6;
+}
+
+.nexsland-timer-phase {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-timer-dots {
+  spacing: 3px;
+}
+
+.nexsland-timer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.nexsland-timer-dot.done {
+  background-color: #ff6a55;
+}
+
+/* Today's checklist. */
+.nexsland-today {
+  spacing: 6px;
+}
+
+.nexsland-today-entry {
+  padding: 4px 10px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.nexsland-today-entry:focus {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.nexsland-today-list {
+  spacing: 2px;
+}
+
+.nexsland-today-empty {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-today-task {
+  spacing: 8px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.nexsland-today-task.due {
+  background-color: rgba(47, 184, 166, 0.16);
+}
+
+.nexsland-today-task.done .nexsland-today-title,
+.nexsland-today-task.done .nexsland-today-time {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.nexsland-today-time {
+  width: 38px;
+  color: rgba(255, 255, 255, 0.6);
+  font-feature-settings: "tnum";
+}
+
+.nexsland-today-task.due .nexsland-today-time,
+.nexsland-today-task.due .nexsland-today-check {
+  color: #2fb8a6;
+  font-weight: bold;
+}
+
+.nexsland-today-check,
+.nexsland-today-remove {
+  padding: 3px;
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-today-check:hover,
+.nexsland-today-remove:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.nexsland-today-task .nexsland-pill-button {
+  padding: 2px 9px;
+}
+
 /* System stats. */
 .nexsland-stats {
   spacing: 10px;
@@ -782,4 +887,34 @@
 
 .nexsland-island.light .nexsland-tone-plain .nexsland-batt-fill {
   background-color: #000000;
+}
+
+.nexsland-island.light .nexsland-timer-phase {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.nexsland-island.light .nexsland-timer-dot {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.nexsland-island.light .nexsland-today-entry {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+
+.nexsland-island.light .nexsland-today-empty,
+.nexsland-island.light .nexsland-today-time,
+.nexsland-island.light .nexsland-today-check,
+.nexsland-island.light .nexsland-today-remove {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.nexsland-island.light .nexsland-today-task.done .nexsland-today-title,
+.nexsland-island.light .nexsland-today-task.done .nexsland-today-time {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.nexsland-island.light .nexsland-today-task.due .nexsland-today-time,
+.nexsland-island.light .nexsland-today-task.due .nexsland-today-check {
+  color: #14796c;
 }

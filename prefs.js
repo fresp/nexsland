@@ -205,7 +205,8 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Notifications"),
         _("The shell's notifications, Do Not Disturb and Clear"),
       ],
-      ["enable-timer", _("Timer"), _("Countdown with presets")],
+      ["enable-timer", _("Timer"), _("Countdown with presets, and Pomodoro rounds")],
+      ["enable-today", _("Today"), _("A checklist for the day with timed reminders")],
       ["enable-calendar", _("Calendar"), _("Events, months and days")],
       ["enable-stats", _("System"), _("CPU, memory and network")],
       [
@@ -216,6 +217,18 @@ export default class NexslandPreferences extends ExtensionPreferences {
     ])
       tabs.add(switchRow(settings, key, title, subtitle));
     p.add(tabs);
+    const today = new Adw.PreferencesGroup({ title: _("Today") });
+    today.add(
+      spinRow(
+        settings,
+        "today-remind-before",
+        _("Remind before"),
+        0,
+        120,
+        _("Minutes before a task's time; 0 only reminds at that time"),
+      ),
+    );
+    p.add(today);
     return p;
   }
 

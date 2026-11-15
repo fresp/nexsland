@@ -23,6 +23,12 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
   corners. Preferences also offer a notch that sits in the top bar itself, in place of the
   clock, and a floating pill.
+- **Opens into a tabbed panel** on hover, click or scrolling down (scroll up closes, sideways
+  switches tabs). Home shows the current activity, or a clock when idle (turn on "Show
+  when idle" to reach the panel while nothing is active).
+- **Panel tabs**: a countdown timer with a Pomodoro mode (a live activity while it runs), a
+  checklist for today whose timed tasks remind you on the island, a calendar, system stats
+  (CPU, memory, network) and an opt-in clipboard history kept in memory only.
 - **Top bar styling** (optional, continued from Open Bar): Mainland, Floating, Islands and
   Trilands bars with your colours, border, neon glow, hover effect and shadow. The island
   follows the bar's look, and on an Islands bar it takes the clock pill's place.
