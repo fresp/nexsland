@@ -42,9 +42,14 @@ enable:
 disable:
 	gnome-extensions disable $(UUID)
 
-# Wayland: test in a nested shell instead of logging out.
+# Wayland: test in a nested shell instead of logging out. GNOME 49 replaced
+# --nested with --devkit (needs the mutter-devkit viewer installed).
 nested: install
-	dbus-run-session -- gnome-shell --nested --wayland
+	@if gnome-shell --help 2>&1 | grep -q -- '--devkit'; then \
+		dbus-run-session -- gnome-shell --devkit --wayland; \
+	else \
+		dbus-run-session -- gnome-shell --nested --wayland; \
+	fi
 
 log:
 	journalctl -f -o cat /usr/bin/gnome-shell | grep --line-buffered -i nexsland
