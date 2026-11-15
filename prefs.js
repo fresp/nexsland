@@ -49,6 +49,10 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Hide the top bar's clock; the island shows the time instead"),
       ),
     );
+    const clockText = new Adw.EntryRow({ title: _("Text next to the clock") });
+    settings.bind("clock-text", clockText, "text", Gio.SettingsBindFlags.DEFAULT);
+    settings.bind("clock-in-island", clockText, "sensitive", Gio.SettingsBindFlags.GET);
+    island.add(clockText);
     island.add(
       this._switch(
         settings,
