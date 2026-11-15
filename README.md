@@ -21,7 +21,8 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
   Right/middle-click dismisses, and dismissed activities can be restored.
 - **Temporary HUDs** that briefly preempt live activities and queue in order.
 - **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
-  corners. A floating pill style is available in Preferences.
+  corners. Preferences also offer a notch that sits in the top bar itself, in place of the
+  clock, and a floating pill.
 - **Opens into a tabbed panel** on hover, click or scrolling down (scroll up closes, sideways
   switches tabs). Home shows the current activity, or a clock when idle (turn on "Show
   when idle" to reach the panel while nothing is active).

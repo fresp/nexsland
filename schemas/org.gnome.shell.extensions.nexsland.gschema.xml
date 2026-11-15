@@ -4,11 +4,12 @@
     <key name="island-style" type="s">
       <choices>
         <choice value="attached"/>
+        <choice value="notch"/>
         <choice value="floating"/>
       </choices>
       <default>"attached"</default>
       <summary>Island style</summary>
-      <description>"attached" hangs the island from the top bar like a notch; "floating" is a pill below it.</description>
+      <description>"attached" hangs the island from the top bar like a notch; "notch" puts it in the top bar itself, in place of the clock; "floating" is a pill below it.</description>
     </key>
     <key name="island-monitor" type="s">
       <choices>
