@@ -22,6 +22,7 @@ const OPEN_BAR = {
   bcolor: ["1.0", "1.0", "1.0"],
   balpha: 0.85,
   bwidth: 2,
+  neon: true,
 };
 
 describe("island-theme", () => {
@@ -37,6 +38,8 @@ describe("island-theme", () => {
       fill: [0.125, 0.125, 0.125, 0.95],
       fg: [1, 1, 1, 1],
       border: { color: [1, 1, 1, 0.85], width: 2 },
+      glow: { color: [1, 1, 1, 0.55], size: 6, wmax: false },
+      hover: null,
       light: false,
     });
   });
@@ -90,5 +93,84 @@ describe("islandOutline", () => {
   it("outlines a floating island all round", () => {
     const p = { ...geom, style: "floating" };
     expect(islandOutline(p)).toEqual(islandPath(p));
+  });
+});
+
+describe("neon glow", () => {
+  const bar = {
+    bartype: "Islands",
+    iscolor: ["0.15", "0.2", "0.4"],
+    isalpha: 1,
+    bcolor: ["0.9", "0.9", "1.0"],
+    balpha: 1,
+    bwidth: 0,
+  };
+
+  it("glows in the border colour when neon is on, even without a border", () => {
+    const theme = themeFromBar({ ...bar, neon: true });
+    expect(theme.border).toBe(null);
+    expect(theme.glow).toEqual({ color: [0.9, 0.9, 1, 0.55], size: 6, wmax: false });
+    expect(themeFromBar({ ...bar, neon: true, "neon-wmax": true }).glow.wmax).toBe(true);
+  });
+
+  it("takes the hover colour for border and glow with the hover effect on", () => {
+    const hovered = { ...bar, neon: true, heffect: true, hcolor: ["0", "0.7", "0.9"], halpha: 0.5 };
+    expect(themeFromBar(hovered).hover).toEqual({
+      color: [0, 0.7, 0.9, 0.5],
+      width: 3.5, // a tenth of the default 35px bar
+      glow: [0, 0.7, 0.9, 0.55],
+    });
+    expect(themeFromBar({ ...hovered, height: 40 }).hover.width).toBe(4);
+    expect(themeFromBar({ ...hovered, height: 120 }).hover.width).toBe(6); // capped
+    expect(themeFromBar({ ...hovered, heffect: false }).hover).toBe(null);
+  });
+
+  it("has no glow without neon", () => {
+    expect(themeFromBar(bar).glow).toBe(null);
+    expect(themeFromBar({ ...bar, neon: false }).glow).toBe(null);
+  });
+});
+
+describe("merged shape", () => {
+  const cap = { x: 0, width: 180, height: 18 };
+
+  it("is one capsule when as wide as the pill", () => {
+    const cmds = islandPath({ width: 180, height: 42, radius: 18, style: "merged", cap });
+    expect(cmds[0]).toEqual({ op: "move", x: 18, y: 0 });
+    // Pill ends and bottom corners all have the pill's radius; no body top corners.
+    const radii = cmds.filter((c) => c.op === "arc").map((c) => c.r);
+    expect(radii).toEqual([18, 0, 18, 18, 0, 18]);
+    expect(islandOutline({ width: 180, height: 42, radius: 18, style: "merged", cap })).toEqual(
+      cmds,
+    );
+  });
+
+  it("puts the pill on a wider body whose top corners show beside it", () => {
+    const wide = { x: 60, width: 180, height: 18 };
+    const cmds = islandPath({
+      width: 300,
+      height: 190,
+      radius: 24,
+      topRadius: 24,
+      style: "merged",
+      cap: wide,
+    });
+    expect(cmds[0]).toEqual({ op: "move", x: 78, y: 0 });
+    // The pill's right end ends at (240, 18), where the body's top edge carries on.
+    expect(cmds[2]).toEqual({ op: "arc", xc: 222, yc: 18, r: 18, a1: -Math.PI / 2, a2: 0 });
+    expect(cmds[3]).toEqual({ op: "line", x: 276, y: 18 });
+    expect(cmds.filter((c) => c.op === "arc").map((c) => c.r)).toEqual([18, 24, 24, 24, 24, 18]);
+  });
+
+  it("limits the body's top corners to the room beside the pill", () => {
+    const cmds = islandPath({
+      width: 190,
+      height: 60,
+      radius: 20,
+      topRadius: 20,
+      style: "merged",
+      cap: { x: 5, width: 180, height: 18 },
+    });
+    expect(cmds.filter((c) => c.op === "arc").map((c) => c.r)).toEqual([18, 5, 20, 20, 5, 18]);
   });
 });

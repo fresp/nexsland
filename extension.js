@@ -5,9 +5,11 @@
 
 import GLib from "gi://GLib";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
+import * as Main from "resource:///org/gnome/shell/ui/main.js";
 
 import { IslandEngine } from "./lib/engine/engine.js";
 import { themeFromBar } from "./lib/engine/island-theme.js";
+import { ClockTakeover } from "./lib/extension/clock.js";
 import { Island } from "./lib/extension/island.js";
 import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
@@ -21,6 +23,7 @@ import { DownloadsProvider } from "./lib/providers/downloads.js";
 import { NexTileProvider } from "./lib/providers/nextile.js";
 import { CalendarFeature } from "./lib/features/calendar.js";
 import { ClipboardFeature } from "./lib/features/clipboard.js";
+import { NotificationsFeature } from "./lib/features/notifications.js";
 import { StatsFeature } from "./lib/features/stats.js";
 import { TimerFeature } from "./lib/features/timer.js";
 import { Logger } from "./lib/shared/logger.js";
@@ -38,6 +41,12 @@ const BAR_THEME_KEYS = [
   "bcolor",
   "balpha",
   "bwidth",
+  "neon",
+  "neon-wmax",
+  "heffect",
+  "hcolor",
+  "halpha",
+  "height",
 ];
 const BAR_THEME_DEBOUNCE_MS = 100;
 
@@ -54,6 +63,7 @@ const PROVIDERS = {
   "enable-dnd": DndProvider,
   "enable-recording": RecordingProvider,
   "enable-privacy": PrivacyProvider,
+  "enable-notifications": NotificationsFeature,
   "enable-timer": TimerFeature,
   "enable-calendar": CalendarFeature,
   "enable-stats": StatsFeature,
@@ -94,6 +104,8 @@ export default class NexslandExtension extends Extension {
       );
       this._syncBar();
       this._syncIslandTheme();
+      this._signals.track(this._settings, "changed::replace-clock-menu", () => this._syncClock());
+      this._syncClock();
     } catch (e) {
       try {
         this.disable();
@@ -111,6 +123,8 @@ export default class NexslandExtension extends Extension {
     this._barGeneration = (this._barGeneration ?? 0) + 1; // cancels a pending lazy load
     this._stopBar();
     this._stopIslandTheme();
+    this._clock?.destroy();
+    this._clock = null;
     for (const provider of this._providers?.values() ?? []) provider.destroy();
     this._providers = null;
     this._island?.teardown();
@@ -186,6 +200,22 @@ export default class NexslandExtension extends Extension {
     this._bar = null;
   }
 
+  /** The clock opens Nexsland instead of GNOME's date menu (replace-clock-menu). */
+  _syncClock() {
+    const wanted = this._settings?.get_boolean("replace-clock-menu") ?? false;
+    if (wanted && !this._clock && this._island) {
+      try {
+        this._clock = new ClockTakeover({ island: this._island });
+      } catch (e) {
+        Logger.error(`clock: takeover failed: ${e}`);
+        this._clock = null;
+      }
+    } else if (!wanted && this._clock) {
+      this._clock.destroy();
+      this._clock = null;
+    }
+  }
+
   /** Island colours follow the bar while the Bar module and island-follow-bar are on. */
   _syncIslandTheme() {
     const follow =
@@ -219,6 +249,9 @@ export default class NexslandExtension extends Extension {
       BAR_THEME_KEYS.map((key) => [key, bar.get_value(key).deepUnpack()]),
     );
     this._island.setTheme(themeFromBar(values));
+    // On an Islands/Trilands bar the clock is its own pill: merge the island into it.
+    const pill = values.bartype === "Islands" || values.bartype === "Trilands";
+    this._island.setAnchor(pill ? (Main.panel.statusArea.dateMenu ?? null) : null);
   }
 
   _stopIslandTheme() {
@@ -228,6 +261,7 @@ export default class NexslandExtension extends Extension {
     this._themeSignals = null;
     this._barThemeSettings = null;
     this._island?.setTheme(null);
+    this._island?.setAnchor(null);
   }
 
   _syncTabs() {

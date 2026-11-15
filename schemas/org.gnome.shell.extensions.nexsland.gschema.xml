@@ -24,13 +24,18 @@
       <summary>Open on hover</summary>
       <description>Expand the island while the pointer rests on it.</description>
     </key>
+    <key name="replace-clock-menu" type="b">
+      <default>true</default>
+      <summary>Open Nexsland from the clock</summary>
+      <description>Hovering or clicking the clock in the top bar opens the Nexsland panel (Notifications, Calendar) instead of GNOME's notifications and calendar menu.</description>
+    </key>
     <key name="show-on-lock-screen" type="b">
       <default>false</default>
       <summary>Show on the lock screen</summary>
       <description>Keep activities and HUDs visible while the screen is locked. The panel and its tabs never open on the lock screen.</description>
     </key>
     <key name="show-when-idle" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Show the island when idle</summary>
       <description>Keep a small pill visible when no activity is active.</description>
     </key>
@@ -89,6 +94,11 @@
       <default>true</default>
       <summary>Microphone in use</summary>
       <description>Show which apps are recording from the microphone.</description>
+    </key>
+    <key name="enable-notifications" type="b">
+      <default>true</default>
+      <summary>Notifications tab</summary>
+      <description>A panel tab listing the shell's notifications, with Do Not Disturb and Clear.</description>
     </key>
     <key name="enable-timer" type="b">
       <default>true</default>

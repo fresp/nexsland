@@ -20,14 +20,10 @@ const extensionGlobals = {
   setTimeout: "readonly",
   clearTimeout: "readonly",
   TextDecoder: "readonly",
+  TextEncoder: "readonly",
 };
 
 export default [
-  {
-    // Vendored from Open Bar (neuromorph/openbar, GPL). Kept close to upstream while it
-    // is being adapted; brought under these rules once the port settles.
-    ignores: ["lib/bar/**"],
-  },
   {
     files: ["lib/**/*.js", "extension.js", "prefs.js"],
     languageOptions: { ecmaVersion: 2022, sourceType: "module", globals: extensionGlobals },
@@ -40,8 +36,15 @@ export default [
     },
   },
   {
+    // Vendored Open Bar code: its dead initial stores ("let x = []" then always
+    // reassigned) are left as upstream wrote them rather than risk changing a path
+    // that does read the initial value. Every other rule applies.
+    files: ["lib/bar/**/*.js"],
+    rules: { "no-useless-assignment": "off" },
+  },
+  {
     // The prefs process is torn down wholesale when its window closes.
-    files: ["prefs.js", "lib/prefs/**/*.js"],
+    files: ["prefs.js", "lib/prefs/**/*.js", "lib/bar/prefs.js"],
     rules: { "local/no-untracked-connect": "off" },
   },
 ];

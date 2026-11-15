@@ -375,13 +375,83 @@
   color: rgba(255, 255, 255, 0.65);
 }
 
+.nexsland-calendar-agenda {
+  spacing: 3px;
+  width: 168px;
+}
+
+.nexsland-calendar-date {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+.nexsland-calendar-empty {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-calendar-event-button {
+  margin: 0 -4px;
+  padding: 1px 4px;
+  border-radius: 6px;
+}
+
+.nexsland-calendar-event-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nexsland-calendar-event {
+  spacing: 6px;
+}
+
+.nexsland-calendar-event-time {
+  font-size: 10px;
+  font-weight: 600;
+  font-feature-settings: "tnum";
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-calendar-event-time.ongoing {
+  color: #2fb8a6;
+}
+
+.nexsland-calendar-event-title {
+  font-size: 11px;
+}
+
+.nexsland-calendar-nav {
+  spacing: 2px;
+}
+
+.nexsland-calendar-nav-title {
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 1px 6px;
+  color: #ffffff;
+}
+
+.nexsland-calendar-nav-button {
+  width: 22px;
+  height: 16px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nexsland-calendar-nav-title:hover,
+.nexsland-calendar-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
 .nexsland-calendar-week {
   spacing: 2px;
 }
 
 .nexsland-calendar-cell {
   width: 26px;
-  height: 16px;
+  height: 14px;
   font-size: 10px;
   text-align: center;
   border-radius: 8px;
@@ -396,8 +466,27 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
+.nexsland-calendar-cell.has-events {
+  font-weight: bold;
+  color: #2fb8a6;
+}
+
+/* Clickable days (St.Button): colours inherit like the labels'. */
+.nexsland-calendar-cell.day {
+  padding: 0;
+}
+
+.nexsland-calendar-cell.day:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.nexsland-calendar-cell.selected {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
 .nexsland-calendar-cell.today {
   background-color: #e5384a;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -427,6 +516,67 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Notifications. */
+.nexsland-notifications {
+  spacing: 6px;
+}
+
+.nexsland-notifications-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-notifications-list {
+  spacing: 2px;
+}
+
+.nexsland-notification {
+  spacing: 8px;
+  padding: 4px 4px 4px 6px;
+  border-radius: 10px;
+}
+
+.nexsland-notification:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.nexsland-notification-head {
+  spacing: 8px;
+}
+
+.nexsland-notification-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nexsland-notification-meta {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nexsland-notification-body {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.nexsland-notification-dismiss {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-notification-dismiss:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.nexsland-pill-button:checked {
+  background-color: #2fb8a6;
+  color: #000000;
+}
+
 /* NexTile tab. */
 .nexsland-nextile {
   spacing: 8px;
@@ -447,6 +597,7 @@
   color: rgba(0, 0, 0, 0.85);
 }
 
+.nexsland-island.light .nexsland-notification-body,
 .nexsland-island.light .nexsland-media-artist,
 .nexsland-island.light .nexsland-hud-detail,
 .nexsland-island.light .nexsland-stat-value,
@@ -454,6 +605,10 @@
   color: rgba(0, 0, 0, 0.72);
 }
 
+.nexsland-island.light .nexsland-notifications-count,
+.nexsland-island.light .nexsland-notification-meta,
+.nexsland-island.light .nexsland-calendar-empty,
+.nexsland-island.light .nexsland-calendar-event-time,
 .nexsland-island.light .nexsland-media-source,
 .nexsland-island.light .nexsland-panel-title,
 .nexsland-island.light .nexsland-calendar-cell.header,
@@ -472,6 +627,9 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
+.nexsland-island.light .nexsland-notification-dismiss,
+.nexsland-island.light .nexsland-calendar-nav-title,
+.nexsland-island.light .nexsland-calendar-nav-button,
 .nexsland-island.light .nexsland-media-button,
 .nexsland-island.light .nexsland-clipboard-item,
 .nexsland-island.light .nexsland-pill-button {
@@ -487,6 +645,12 @@
   color: #000000;
 }
 
+.nexsland-island.light .nexsland-notification:hover,
+.nexsland-island.light .nexsland-notification-dismiss:hover,
+.nexsland-island.light .nexsland-calendar-event-button:hover,
+.nexsland-island.light .nexsland-calendar-cell.day:hover,
+.nexsland-island.light .nexsland-calendar-nav-title:hover,
+.nexsland-island.light .nexsland-calendar-nav-button:hover,
 .nexsland-island.light .nexsland-media-button:hover,
 .nexsland-island.light .nexsland-tab:hover,
 .nexsland-island.light .nexsland-pill-button,
@@ -494,6 +658,7 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.nexsland-island.light .nexsland-calendar-cell.selected,
 .nexsland-island.light .nexsland-tab:checked,
 .nexsland-island.light .nexsland-media-button:active,
 .nexsland-island.light .nexsland-pill-button:hover {

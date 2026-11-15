@@ -44,6 +44,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
     island.add(
       this._switch(
         settings,
+        "replace-clock-menu",
+        _("Open from the clock"),
+        _("The clock opens Nexsland instead of GNOME's notifications and calendar menu"),
+      ),
+    );
+    island.add(
+      this._switch(
+        settings,
         "show-on-lock-screen",
         _("Show on lock screen"),
         _("Activities and HUDs only; the panel never opens while locked"),
@@ -184,6 +192,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
       title: _("Panel tabs"),
       description: _("Shown when the island opens, after Home"),
     });
+    tabs.add(
+      this._switch(
+        settings,
+        "enable-notifications",
+        _("Notifications"),
+        _("The shell's notifications, Do Not Disturb and Clear"),
+      ),
+    );
     tabs.add(this._switch(settings, "enable-timer", _("Timer"), _("Countdown with presets")));
     tabs.add(this._switch(settings, "enable-calendar", _("Calendar"), _("Today and the month")));
     tabs.add(this._switch(settings, "enable-stats", _("System"), _("CPU, memory and network")));
