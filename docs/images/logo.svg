@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>Nexsland</title>
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="#101418"/>
+  <rect x="44" y="98" width="168" height="60" rx="30" fill="#000"/>
+  <circle cx="176" cy="128" r="22" fill="none" stroke="#2fb8a6" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="176" cy="128" r="14" fill="none" stroke="#2fb8a6" stroke-opacity="0.65" stroke-width="3"/>
+  <circle cx="176" cy="128" r="7" fill="#2fb8a6"/>
+  <rect x="68" y="122" width="72" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+</svg>

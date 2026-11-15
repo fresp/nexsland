@@ -1,0 +1,64 @@
+/* Nexsland. Accent teal is shared with the NexTile palette. */
+
+.nexsland-island {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.nexsland-accent {
+  color: #2fb8a6;
+}
+
+.nexsland-media-compact {
+  spacing: 8px;
+  padding: 0 14px 0 8px;
+}
+
+.nexsland-media-expanded {
+  spacing: 10px;
+  padding: 14px 18px;
+}
+
+.nexsland-media-row {
+  spacing: 12px;
+}
+
+.nexsland-media-art {
+  border-radius: 6px;
+}
+
+.nexsland-media-title {
+  font-weight: bold;
+}
+
+.nexsland-media-artist {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.nexsland-media-source {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+}
+
+.nexsland-media-controls {
+  spacing: 18px;
+}
+
+.nexsland-media-button {
+  padding: 6px;
+  border-radius: 99px;
+  color: #ffffff;
+}
+
+.nexsland-media-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.nexsland-media-button:active {
+  background-color: rgba(47, 184, 166, 0.35);
+}
+
+.nexsland-media-button:insensitive {
+  color: rgba(255, 255, 255, 0.3);
+}

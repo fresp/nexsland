@@ -1,0 +1,18 @@
+Nexsland
+Copyright (C) 2026 Nexsland contributors
+Licensed under the GNU General Public License v3.0 or later. See LICENSE.
+
+Nexsland is an independent GNOME Shell extension. It contains no code or
+assets copied from the projects below; their designs informed its behavior.
+
+- DynamicNotch (https://github.com/jackson-storm/DynamicNotch), GPL-3.0.
+  The live-activity / temporary-notification presentation model in
+  lib/engine/engine.js follows its NotchEngine design.
+- Atoll (https://github.com/Ebullioscopic/Atoll), GPL-3.0, itself derived
+  from boring.notch (https://github.com/TheBoredTeam/boring.notch), GPL-3.0.
+  Feature set and interaction ideas.
+- NexTile (https://github.com/fresp/nexTile), GPL-3.0-or-later.
+  Build, lint and logging scaffolding, and the no-untracked-connect ESLint rule.
+
+"Dynamic Island" is a trademark of Apple Inc. Nexsland is not affiliated with,
+endorsed by, or sponsored by Apple, Atoll or DynamicNotch.

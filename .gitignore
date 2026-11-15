@@ -1,0 +1,8 @@
+node_modules
+temp
+*.zip
+*.mo
+schemas/gschemas.compiled
+coverage/
+.vscode/
+.idea/

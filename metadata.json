@@ -1,0 +1,9 @@
+{
+  "name": "Nexsland",
+  "description": "A living, morphing status island for GNOME Shell.\n- Media, system HUDs and live activities in one fluid surface\n- Please report bugs on https://github.com/fresp/nexsland/issues",
+  "uuid": "nexsland@fresp.github.io",
+  "settings-schema": "org.gnome.shell.extensions.nexsland",
+  "gettext-domain": "nexsland",
+  "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
+  "url": "https://github.com/fresp/nexsland"
+}

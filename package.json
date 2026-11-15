@@ -1,0 +1,36 @@
+{
+  "name": "nexsland",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nexsland - a living, morphing status island for GNOME Shell",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "prettier --check .",
+    "lint:src": "eslint lib extension.js prefs.js",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fresp/nexsland.git"
+  },
+  "keywords": [
+    "gnome",
+    "gnome-shell",
+    "gnome-shell-extension",
+    "mpris",
+    "live-activities"
+  ],
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/fresp/nexsland/issues"
+  },
+  "homepage": "https://github.com/fresp/nexsland#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10",
+    "vitest": "^5.1.0"
+  }
+}

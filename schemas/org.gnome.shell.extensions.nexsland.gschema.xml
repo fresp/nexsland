@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="nexsland">
+  <schema id="org.gnome.shell.extensions.nexsland" path="/org/gnome/shell/extensions/nexsland/">
+    <key name="show-when-idle" type="b">
+      <default>false</default>
+      <summary>Show the island when idle</summary>
+      <description>Keep a small pill visible when no activity is active.</description>
+    </key>
+    <key name="vertical-offset" type="i">
+      <range min="-40" max="120"/>
+      <default>6</default>
+      <summary>Vertical offset</summary>
+      <description>Distance between the bottom of the top bar and the island, in pixels.</description>
+    </key>
+    <key name="animation-style" type="s">
+      <choices>
+        <choice value="bouncy"/>
+        <choice value="smooth"/>
+        <choice value="snappy"/>
+      </choices>
+      <default>"bouncy"</default>
+      <summary>Animation style</summary>
+      <description>Spring preset used when the island morphs.</description>
+    </key>
+    <key name="enable-media" type="b">
+      <default>true</default>
+      <summary>Now Playing</summary>
+      <description>Show media from MPRIS players as a live activity.</description>
+    </key>
+    <key name="logging-enabled" type="b">
+      <default>false</default>
+      <summary>Enable logging</summary>
+    </key>
+    <key name="log-level" type="u">
+      <range min="0" max="4"/>
+      <default>3</default>
+      <summary>Log level</summary>
+      <description>0 off, 1 error, 2 warn, 3 info, 4 debug.</description>
+    </key>
+  </schema>
+</schemalist>
