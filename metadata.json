@@ -1,6 +1,6 @@
 {
   "name": "Nexsland",
-  "description": "A living, morphing status island for GNOME Shell.\n- Media, system HUDs and live activities in one fluid surface\n- Please report bugs on https://github.com/fresp/nexsland/issues",
+  "description": "A living, morphing status island that hangs from the top bar.\n\n- Now Playing, volume and brightness, battery, Bluetooth, network, Do Not Disturb, screen recording, microphone in use and downloads\n- Opens on hover into a tabbed panel: timer, calendar, system stats and an opt-in, memory-only clipboard history\n- Optional lock screen display and NexTile integration\n\nReport bugs at https://github.com/fresp/nexsland/issues",
   "uuid": "nexsland@fresp.github.io",
   "settings-schema": "org.gnome.shell.extensions.nexsland",
   "gettext-domain": "nexsland",

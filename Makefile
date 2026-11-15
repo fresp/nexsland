@@ -20,9 +20,13 @@ build: clean schemas/gschemas.compiled
 		python3 -c "import json,sys; p='temp/metadata.json'; d=json.load(open(p)); d['version-name']=sys.argv[1]; json.dump(d,open(p,'w'),indent=2)" "$(VERSION_NAME)"; \
 	fi
 
+# The extensions.gnome.org package. GNOME 44+ compiles schemas on install, so the
+# compiled file is left out (reviewers ask for that); `make install` keeps it.
 dist: build
+	rm -f temp/schemas/gschemas.compiled
 	cd temp && zip -qr "../$(UUID).zip" .
-	@unzip -l "$(UUID).zip" | grep -q 'schemas/gschemas.compiled' || { echo "dist: zip is missing schemas/gschemas.compiled"; exit 1; }
+	@unzip -l "$(UUID).zip" | grep -q 'schemas/org.gnome.shell.extensions.nexsland.gschema.xml' || { echo "dist: zip is missing the schema"; exit 1; }
+	@! unzip -l "$(UUID).zip" | grep -q 'gschemas.compiled' || { echo "dist: zip must not contain gschemas.compiled"; exit 1; }
 
 install: build
 	rm -rf $(INSTALL_PATH)
