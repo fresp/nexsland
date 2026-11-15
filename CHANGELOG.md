@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.0 (2026-11-16)
+
+### Added
+
+- **Notch in the top bar** (Island > Style): the island sits in the bar itself, from its top
+  edge and as tall as the bar, showing the time in place of the bar's clock, and opens
+  downwards from there. Best with a Mainland bar; on an Islands or Trilands bar it merges
+  with the clock pill as before.
+- **Pomodoro mode** in the Timer tab: the same countdown runs through focus and break
+  rounds and ends on a long break. Each phase that ends starts the next one with a HUD and
+  the theme's sound. The island names the phase and shows a dot per round, tomato while
+  focusing and teal on a break. Lengths and the number of rounds are set in the panel.
+- **Today tab**: a checklist for the day. Type a title, optionally with a time as the first
+  or last word; tick tasks off or remove them. A task with a time is announced a few minutes
+  early (Panel > Early reminder) and from its time on stays on the island, above a running
+  timer, until it is ticked or snoozed for ten minutes. When the day changes, ticked tasks
+  are dropped and the rest carry over without a time. The list is stored in GSettings.
+
 ## 0.2.0 (2026-11-15)
 
 ### Added
@@ -50,5 +68,5 @@
 ### Fixed
 
 - Enabling on GNOME 51, which rejected a chrome parameter that GNOME 46 accepted.
-- Preferences failing to load with "doesn't provide an export named: '_pgettext'".
+- Preferences failing to load with "doesn't provide an export named: '\_pgettext'".
 - Errors at shell shutdown from handlers still connected to the panel and the clock.

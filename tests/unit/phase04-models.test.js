@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { islandMonitor, topInset } from "../../lib/engine/placement.js";
+import { islandMonitor, notchPlacement, notchSize, topInset } from "../../lib/engine/placement.js";
 import { DownloadTracker, partialTarget } from "../../lib/providers/downloads-model.js";
 import {
   nextileEvents,
@@ -22,6 +22,53 @@ describe("placement", () => {
     expect(islandMonitor({ mode: "focused", primaryIndex: 0, focusIndex: 5, nMonitors: 2 })).toBe(
       0,
     );
+  });
+
+  it("puts a notch in the bar, from the bar's top edge", () => {
+    expect(notchPlacement({ monitorIndex: 0, primaryIndex: 0, panelHeight: 35 })).toEqual({
+      top: 0,
+      height: 35,
+    });
+    expect(
+      notchPlacement({
+        monitorIndex: 0,
+        primaryIndex: 0,
+        panelTop: 6.5,
+        panelHeight: 35,
+        monitorHeight: 1080,
+      }),
+    ).toEqual({ top: 7, height: 35 });
+  });
+
+  it("has no notch slot without a bar at the top of the island's monitor", () => {
+    expect(notchPlacement({ monitorIndex: 1, primaryIndex: 0, panelHeight: 35 })).toBeNull();
+    expect(notchPlacement({ monitorIndex: 0, primaryIndex: -1, panelHeight: 35 })).toBeNull();
+    expect(notchPlacement({ monitorIndex: 0, primaryIndex: 0, panelHeight: 0 })).toBeNull();
+    expect(
+      notchPlacement({
+        monitorIndex: 0,
+        primaryIndex: 0,
+        panelTop: 1045,
+        panelHeight: 35,
+        monitorHeight: 1080,
+      }),
+    ).toBeNull();
+  });
+
+  it("keeps a notch at least as tall as the bar, with its own corners while it fits", () => {
+    const clock = { width: 180, height: 28, radius: 14, ear: 6 };
+    expect(notchSize({ target: clock, barHeight: 35 })).toEqual({
+      width: 180,
+      height: 35,
+      radius: 14,
+      ear: 8,
+    });
+    // A short bar: the corners cannot be rounder than half its height.
+    expect(notchSize({ target: clock, barHeight: 24 }).height).toBe(28);
+    expect(notchSize({ target: { ...clock, height: 20 }, barHeight: 24 }).radius).toBe(12);
+    // The open panel is taller than the bar and keeps its own shape.
+    const panel = { width: 460, height: 180, radius: 24, ear: 14 };
+    expect(notchSize({ target: panel, barHeight: 35 })).toEqual(panel);
   });
 
   it("only insets below the top bar on the primary monitor", () => {

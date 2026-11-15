@@ -15,6 +15,11 @@ Nexsland is a GNOME Shell extension (GNOME 46 and 51) that renders a morphing
 - `lib/providers/` — one module per activity source. A provider only calls
   `engine.showLive/hideLive/showTemporary`; it never touches the island. Pure logic goes in a
   sibling `*-model.js` with unit tests.
+- `lib/features/` — panel tabs (timer and Pomodoro, Today, calendar, system stats, clipboard,
+  notifications). Same split as providers: pure logic in a `*-model.js` with unit tests.
+- `docs/images/style-*.svg` — the README's island style illustrations, generated from
+  `lib/engine/shape.js` geometry by `node scripts/render-style-images.mjs`; rerun it when the
+  outline changes.
 - `lib/bar/` — the Bar module: top bar styling continued from Open Bar (bar types, bar and island
   colours, border, neon, hover, shadow, maximized-window bar), vendored, adapted and cut down to
   what shapes the bar and the island; loaded lazily when `enable-bar` is on. Its settings are the

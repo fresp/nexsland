@@ -4,11 +4,12 @@
     <key name="island-style" type="s">
       <choices>
         <choice value="attached"/>
+        <choice value="notch"/>
         <choice value="floating"/>
       </choices>
       <default>"attached"</default>
       <summary>Island style</summary>
-      <description>"attached" hangs the island from the top bar like a notch; "floating" is a pill below it.</description>
+      <description>"attached" hangs the island from the top bar like a notch; "notch" puts it in the top bar itself, in place of the clock; "floating" is a pill below it.</description>
     </key>
     <key name="island-monitor" type="s">
       <choices>
@@ -188,7 +189,7 @@
     <key name="enable-bar" type="b">
       <default>false</default>
       <summary>Theme the top bar</summary>
-      <description>Style the top bar, menus, dash and shell with the Bar module (continued from Open Bar). Off by default so installing Nexsland does not restyle the shell.</description>
+      <description>Style the top bar and its buttons with the Bar module (continued from Open Bar). Off by default so installing Nexsland does not restyle the shell.</description>
     </key>
     <key name="island-follow-bar" type="b">
       <default>true</default>
