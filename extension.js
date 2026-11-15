@@ -7,6 +7,7 @@ import GLib from "gi://GLib";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 
 import { IslandEngine } from "./lib/engine/engine.js";
+import { themeFromBar } from "./lib/engine/island-theme.js";
 import { Island } from "./lib/extension/island.js";
 import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
@@ -24,6 +25,21 @@ import { StatsFeature } from "./lib/features/stats.js";
 import { TimerFeature } from "./lib/features/timer.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
+
+/** Bar module keys the island's colours are taken from (lib/engine/island-theme.js). */
+const BAR_THEME_KEYS = [
+  "bartype",
+  "bgcolor",
+  "bgalpha",
+  "iscolor",
+  "isalpha",
+  "fgcolor",
+  "fgalpha",
+  "bcolor",
+  "balpha",
+  "bwidth",
+];
+const BAR_THEME_DEBOUNCE_MS = 100;
 
 /**
  * Everything that can be toggled from prefs: settings key -> constructor.
@@ -69,8 +85,15 @@ export default class NexslandExtension extends Extension {
         this._syncProvider(key);
       }
       this._syncTabs();
-      this._signals.track(this._settings, "changed::enable-bar", () => this._syncBar());
+      this._signals.track(this._settings, "changed::enable-bar", () => {
+        this._syncBar();
+        this._syncIslandTheme();
+      });
+      this._signals.track(this._settings, "changed::island-follow-bar", () =>
+        this._syncIslandTheme(),
+      );
       this._syncBar();
+      this._syncIslandTheme();
     } catch (e) {
       try {
         this.disable();
@@ -87,6 +110,7 @@ export default class NexslandExtension extends Extension {
     this._signals = null;
     this._barGeneration = (this._barGeneration ?? 0) + 1; // cancels a pending lazy load
     this._stopBar();
+    this._stopIslandTheme();
     for (const provider of this._providers?.values() ?? []) provider.destroy();
     this._providers = null;
     this._island?.teardown();
@@ -160,6 +184,50 @@ export default class NexslandExtension extends Extension {
       Logger.error(`bar: failed to stop cleanly: ${e}`);
     }
     this._bar = null;
+  }
+
+  /** Island colours follow the bar while the Bar module and island-follow-bar are on. */
+  _syncIslandTheme() {
+    const follow =
+      this._settings?.get_boolean("enable-bar") && this._settings?.get_boolean("island-follow-bar");
+    if (!follow) {
+      this._stopIslandTheme();
+      return;
+    }
+    if (!this._themeSignals) {
+      this._barThemeSettings = this.getSettings("org.gnome.shell.extensions.nexsland.bar");
+      this._themeSignals = new SignalTracker();
+      this._themeSignals.track(this._barThemeSettings, "changed", (_s, key) => {
+        if (BAR_THEME_KEYS.includes(key)) this._scheduleIslandTheme();
+      });
+    }
+    this._applyIslandTheme();
+  }
+
+  _scheduleIslandTheme() {
+    if (this._themeTimer) this._scheduler.clearTimeout(this._themeTimer);
+    this._themeTimer = this._scheduler.setTimeout(() => {
+      this._themeTimer = null;
+      this._applyIslandTheme();
+    }, BAR_THEME_DEBOUNCE_MS);
+  }
+
+  _applyIslandTheme() {
+    const bar = this._barThemeSettings;
+    if (!bar || !this._island) return;
+    const values = Object.fromEntries(
+      BAR_THEME_KEYS.map((key) => [key, bar.get_value(key).deepUnpack()]),
+    );
+    this._island.setTheme(themeFromBar(values));
+  }
+
+  _stopIslandTheme() {
+    if (this._themeTimer) this._scheduler?.clearTimeout(this._themeTimer);
+    this._themeTimer = null;
+    this._themeSignals?.disconnectAll();
+    this._themeSignals = null;
+    this._barThemeSettings = null;
+    this._island?.setTheme(null);
   }
 
   _syncTabs() {

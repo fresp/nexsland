@@ -170,6 +170,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Off by default; style it on the Top bar page"),
       ),
     );
+    bar.add(
+      this._switch(
+        settings,
+        "island-follow-bar",
+        _("Island matches the bar"),
+        _("Use the bar's background, text and border colours for the island"),
+      ),
+    );
     page.add(bar);
 
     const tabs = new Adw.PreferencesGroup({
