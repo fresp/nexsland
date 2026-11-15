@@ -23,7 +23,8 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Notch-style shell** attached to the top bar, with concave ears and rounded bottom
   corners. A floating pill style is available in Preferences.
 - **Opens into a tabbed panel** on hover, click or scrolling down (scroll up closes, sideways
-  switches tabs). Home shows the current activity, or a clock when idle.
+  switches tabs). Home shows the current activity, or a clock when idle (turn on "Show
+  when idle" to reach the panel while nothing is active).
 - **Panel tabs**: a countdown timer (a live activity while it runs), a calendar, system stats
   (CPU, memory, network) and an opt-in clipboard history kept in memory only.
 - **Now Playing** from any MPRIS player: artwork on the left and live bars on the right

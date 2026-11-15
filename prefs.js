@@ -60,7 +60,9 @@ export default class NexslandPreferences extends ExtensionPreferences {
         settings,
         "show-when-idle",
         _("Show when idle"),
-        _("Keep a small pill visible when there is nothing to show"),
+        _(
+          "Keep a small pill under the top bar when nothing is active, so the panel can still be opened",
+        ),
       ),
     );
 
