@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { addMonths, agenda, dayOffset, isAllDay } from "../../lib/features/calendar-model.js";
+import {
+  addMonths,
+  agenda,
+  dayAgenda,
+  dayOffset,
+  isAllDay,
+  monthsBetween,
+} from "../../lib/features/calendar-model.js";
 
 const d = (...a) => new Date(...a);
 
@@ -39,5 +46,29 @@ describe("calendar events", () => {
       ["Later", 0, false],
       ["Tomorrow", 1, false],
     ]);
+  });
+
+  it("lists one day's events, including those running through it", () => {
+    const day = d(2026, 10, 16, 12);
+    const events = [
+      { summary: "Late", date: d(2026, 10, 16, 18), end: d(2026, 10, 16, 19) },
+      { summary: "Trip", date: d(2026, 10, 14), end: d(2026, 10, 18) },
+      { summary: "Overnight", date: d(2026, 10, 15, 22), end: d(2026, 10, 16, 2) },
+      { summary: "Other day", date: d(2026, 10, 17, 9), end: d(2026, 10, 17, 10) },
+      { summary: "Ends at midnight", date: d(2026, 10, 15, 23), end: d(2026, 10, 16) },
+      { summary: "Early", date: d(2026, 10, 16, 8), end: d(2026, 10, 16, 9) },
+    ];
+    const { rows, more } = dayAgenda(events, day, 3);
+    expect(rows.map((r) => [r.summary, r.continues, r.carriesOn, r.allDay])).toEqual([
+      ["Trip", true, true, true],
+      ["Overnight", true, false, false],
+      ["Early", false, false, false],
+    ]);
+    expect(more).toBe(1);
+  });
+
+  it("counts months across years", () => {
+    expect(monthsBetween({ year: 2026, month: 10 }, d(2027, 0, 3))).toBe(2);
+    expect(monthsBetween({ year: 2026, month: 10 }, d(2026, 9, 31))).toBe(-1);
   });
 });
