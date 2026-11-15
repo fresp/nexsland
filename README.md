@@ -26,7 +26,7 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
   switches tabs). Home shows the current activity, or a clock when idle (turn on "Show
   when idle" to reach the panel while nothing is active).
 - **Panel tabs**: a countdown timer with a Pomodoro mode (a live activity while it runs), a
-  calendar, system stats
+  checklist for today whose timed tasks remind you on the island, a calendar, system stats
   (CPU, memory, network) and an opt-in clipboard history kept in memory only.
 - **Now Playing** from any MPRIS player: artwork on the left and live bars on the right
   while closed; large rounded artwork, track info and playback controls when open.

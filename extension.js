@@ -27,6 +27,7 @@ import { ClipboardFeature } from "./lib/features/clipboard.js";
 import { NotificationsFeature } from "./lib/features/notifications.js";
 import { StatsFeature } from "./lib/features/stats.js";
 import { TimerFeature } from "./lib/features/timer.js";
+import { TodayFeature } from "./lib/features/today.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
@@ -67,6 +68,7 @@ const PROVIDERS = {
   "enable-privacy": PrivacyProvider,
   "enable-notifications": NotificationsFeature,
   "enable-timer": TimerFeature,
+  "enable-today": TodayFeature,
   "enable-calendar": CalendarFeature,
   "enable-stats": StatsFeature,
   "enable-clipboard": ClipboardFeature,
