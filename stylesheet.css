@@ -42,8 +42,8 @@
 
 /* Open: large art, info column, controls. */
 .nexsland-media-expanded {
-  spacing: 18px;
-  padding: 10px 22px 18px 18px;
+  spacing: 14px;
+  padding: 4px 8px 6px 4px;
 }
 
 .nexsland-media-info {
@@ -51,31 +51,31 @@
 }
 
 .nexsland-media-head {
-  spacing: 10px;
+  spacing: 8px;
 }
 
 .nexsland-media-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .nexsland-media-artist {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.72);
 }
 
 .nexsland-media-source {
-  font-size: 11px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
 }
 
 .nexsland-media-controls {
-  spacing: 22px;
+  spacing: 16px;
 }
 
 .nexsland-media-button {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 99px;
   color: #ffffff;
 }
@@ -93,8 +93,8 @@
 }
 
 .nexsland-media-button.primary {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   background-color: #ffffff;
   color: #000000;
 }
@@ -229,8 +229,8 @@
 
 /* Open panel (tabs). */
 .nexsland-panel {
-  padding: 8px 20px 16px;
-  spacing: 6px;
+  padding: 6px 16px 12px;
+  spacing: 4px;
 }
 
 .nexsland-panel-header {
@@ -242,8 +242,8 @@
 }
 
 .nexsland-tab {
-  width: 32px;
-  height: 28px;
+  width: 28px;
+  height: 24px;
   border-radius: 99px;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -259,7 +259,7 @@
 }
 
 .nexsland-panel-title {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -269,14 +269,14 @@
 }
 
 .nexsland-clock-time {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   font-feature-settings: "tnum";
   text-align: center;
 }
 
 .nexsland-clock-date {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.65);
   text-align: center;
 }
@@ -286,11 +286,11 @@
 }
 
 .nexsland-pill-button {
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 99px;
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -305,11 +305,11 @@
 
 /* Timer. */
 .nexsland-timer {
-  spacing: 10px;
+  spacing: 8px;
 }
 
 .nexsland-timer-time {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   font-feature-settings: "tnum";
   color: #f2c14e;
@@ -328,8 +328,8 @@
 
 /* System stats. */
 .nexsland-stats {
-  spacing: 14px;
-  padding-top: 12px;
+  spacing: 10px;
+  padding-top: 10px;
 }
 
 .nexsland-stat-row {
@@ -337,41 +337,41 @@
 }
 
 .nexsland-stat-title {
-  width: 72px;
-  font-size: 13px;
+  width: 64px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .nexsland-stat-value {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.72);
   font-feature-settings: "tnum";
 }
 
 /* Calendar. */
 .nexsland-calendar {
-  spacing: 28px;
-  padding-top: 4px;
+  spacing: 20px;
+  padding-top: 2px;
 }
 
 .nexsland-calendar-summary {
   spacing: 0;
-  width: 140px;
+  width: 112px;
 }
 
 .nexsland-calendar-weekday {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #e5384a;
 }
 
 .nexsland-calendar-day {
-  font-size: 44px;
+  font-size: 34px;
   font-weight: bold;
 }
 
 .nexsland-calendar-month {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -380,11 +380,11 @@
 }
 
 .nexsland-calendar-cell {
-  width: 30px;
-  height: 18px;
-  font-size: 11px;
+  width: 26px;
+  height: 16px;
+  font-size: 10px;
   text-align: center;
-  border-radius: 9px;
+  border-radius: 8px;
 }
 
 .nexsland-calendar-cell.header {
@@ -403,12 +403,12 @@
 
 /* Clipboard. */
 .nexsland-clipboard {
-  spacing: 6px;
+  spacing: 4px;
 }
 
 .nexsland-clipboard-note,
 .nexsland-clipboard-empty {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -417,9 +417,9 @@
 }
 
 .nexsland-clipboard-item {
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  font-size: 11px;
   color: #ffffff;
 }
 
@@ -429,11 +429,11 @@
 
 /* NexTile tab. */
 .nexsland-nextile {
-  spacing: 12px;
+  spacing: 8px;
 }
 
 .nexsland-nextile-status {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.75);
   text-align: center;
 }
