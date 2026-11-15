@@ -11,8 +11,8 @@ system HUDs and live activities. Like a notch, it hangs from the top bar: slim w
 something is happening, opening into a full panel when you hover it, with spring physics
 throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 
-> **Status: Phase 0.1.** The engine, the morphing island, Now Playing, OSD and battery HUDs
-> are in place.
+> **Status: Phase 0.2.** Now Playing, OSD, battery, connectivity, screen recording and
+> microphone activities are in place; none of it has been tested on a real shell yet.
 > Expect rough edges; not yet published on extensions.gnome.org.
 
 ## Features
@@ -31,6 +31,11 @@ throughout. Sibling of [NexTile](https://github.com/fresp/nexTile).
 - **Volume, microphone and brightness** in the island instead of the stock OSD, with a level
   bar that updates in place. Falls back to the stock OSD whenever the island is not visible.
 - **Battery notices**: charging, unplugged, fully charged, low (20%) and critical (10%).
+- **Connectivity**: Bluetooth devices connecting (with their battery level), Wi-Fi, wired and
+  VPN connections coming and going, Do Not Disturb on/off.
+- **Screen recording** as a live activity with elapsed time and a stop button.
+- **Microphone in use**: which apps are recording, for as long as they do. Camera use is not
+  covered yet.
 - Hides in the overview and over fullscreen windows.
 
 ## Install from source
