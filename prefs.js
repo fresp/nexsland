@@ -113,6 +113,14 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Elapsed time and a stop button while recording"),
       ),
     );
+    activities.add(
+      this._switch(
+        settings,
+        "enable-privacy",
+        _("Microphone in use"),
+        _("Which apps are recording from the microphone"),
+      ),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });

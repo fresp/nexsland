@@ -221,3 +221,8 @@
   border-radius: 2px;
   background-color: #ff6b7a;
 }
+
+.nexsland-tone-privacy .nexsland-hud-icon,
+.nexsland-tone-privacy .nexsland-hud-tinted {
+  color: #ff9b42;
+}

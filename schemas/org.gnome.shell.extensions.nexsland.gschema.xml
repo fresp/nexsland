@@ -71,6 +71,11 @@
       <summary>Screen recording</summary>
       <description>Show a running screen recording with its elapsed time and a stop button.</description>
     </key>
+    <key name="enable-privacy" type="b">
+      <default>true</default>
+      <summary>Microphone in use</summary>
+      <description>Show which apps are recording from the microphone.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>
