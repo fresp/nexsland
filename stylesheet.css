@@ -374,6 +374,39 @@
   font-feature-settings: "tnum";
 }
 
+/* Pomodoro: tomato while focusing, teal on a break; plain timers stay amber. */
+.nexsland-timer.focus .nexsland-timer-time,
+.nexsland-timer-chip.focus .nexsland-timer-icon,
+.nexsland-timer-chip.focus .nexsland-timer-chip-time {
+  color: #ff6a55;
+}
+
+.nexsland-timer.break .nexsland-timer-time,
+.nexsland-timer-chip.break .nexsland-timer-icon,
+.nexsland-timer-chip.break .nexsland-timer-chip-time {
+  color: #2fb8a6;
+}
+
+.nexsland-timer-phase {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nexsland-timer-dots {
+  spacing: 3px;
+}
+
+.nexsland-timer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.nexsland-timer-dot.done {
+  background-color: #ff6a55;
+}
+
 /* System stats. */
 .nexsland-stats {
   spacing: 10px;
@@ -754,4 +787,12 @@
 
 .nexsland-island.light .nexsland-tone-plain .nexsland-batt-fill {
   background-color: #000000;
+}
+
+.nexsland-island.light .nexsland-timer-phase {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.nexsland-island.light .nexsland-timer-dot {
+  background-color: rgba(0, 0, 0, 0.25);
 }
