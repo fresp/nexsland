@@ -12,8 +12,10 @@
   rounds and ends on a long break. Each phase that ends starts the next one with a HUD and
   the theme's sound. The island names the phase and shows a dot per round, tomato while
   focusing and teal on a break. Lengths and the number of rounds are set in the panel.
-- **Today tab**: a checklist for the day. Type a title, optionally with a time as the first
-  or last word; tick tasks off or remove them. A task with a time is announced a few minutes
+- **Today tab**: a checklist for the day. Add a task in the row under the list: a title and,
+  in its own field on the right, an optional time (a time typed as the first or last word of
+  the title works too; one that is not a time of day turns red). Tick tasks off or remove
+  them. A task with a time is announced a few minutes
   early (Panel > Early reminder) and from its time on stays on the island, above a running
   timer, until it is ticked or snoozed for ten minutes. When the day changes, ticked tasks
   are dropped and the rest carry over without a time. The list is stored in GSettings.
