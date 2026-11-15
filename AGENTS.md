@@ -2,7 +2,7 @@
 
 Guidance for AI coding agents in this repository. `CLAUDE.md` imports this file; edit it here.
 
-Nexsland is a GNOME Shell extension (GNOME 45–51, X11 and Wayland) that renders a morphing
+Nexsland is a GNOME Shell extension (GNOME 46 and 51) that renders a morphing
 "island" at the top of the screen for media, system HUDs and live activities.
 
 ## Layout
