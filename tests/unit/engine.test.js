@@ -162,13 +162,11 @@ describe("IslandEngine", () => {
     expect(sched.pending).toBe(0);
   });
 
-  it("toggleExpanded only applies to expandable live content", () => {
-    engine.showLive(live("plain"));
+  it("opens the panel with or without content; a temporary hides it until it ends", () => {
     engine.toggleExpanded();
-    expect(engine.state.expanded).toBe(false);
+    expect(engine.state).toEqual({ kind: null, content: null, expanded: true });
     engine.showLive(live("media", 10, { expandable: true }));
-    engine.toggleExpanded();
-    expect(engine.state.expanded).toBe(true);
+    expect(engine.state).toMatchObject({ kind: "live", expanded: true });
     engine.showTemporary({ id: "volume" }, 1000);
     expect(engine.state.expanded).toBe(false);
     sched.advance(1000);
@@ -177,17 +175,14 @@ describe("IslandEngine", () => {
     expect(engine.state.expanded).toBe(false);
   });
 
-  it("expand opens expandable live content only", () => {
+  it("expand is idempotent and dismiss closes the panel", () => {
+    engine.showLive(live("media"));
     engine.expand();
-    expect(engine.state.expanded).toBe(false);
-    engine.showLive(live("media", 0, { expandable: true }));
+    const count = emitted.length;
     engine.expand();
-    engine.expand();
-    expect(engine.state.expanded).toBe(true);
-    engine.showTemporary({ id: "volume" }, 500);
-    engine.collapse();
-    sched.advance(500);
-    expect(engine.state.expanded).toBe(false);
+    expect(emitted.length).toBe(count);
+    engine.dismiss();
+    expect(engine.state).toEqual({ kind: null, content: null, expanded: false });
   });
 
   it("does not emit when nothing visible changed", () => {
