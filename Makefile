@@ -15,7 +15,7 @@ schemas/gschemas.compiled: schemas/*.gschema.xml
 
 build: clean schemas/gschemas.compiled
 	mkdir -p temp
-	cp -r lib schemas extension.js prefs.js stylesheet.css metadata.json LICENSE temp/
+	cp -r lib schemas extension.js prefs.js stylesheet.css metadata.json LICENSE NOTICE temp/
 	@if [ -n "$(VERSION_NAME)" ]; then \
 		python3 -c "import json,sys; p='temp/metadata.json'; d=json.load(open(p)); d['version-name']=sys.argv[1]; json.dump(d,open(p,'w'),indent=2)" "$(VERSION_NAME)"; \
 	fi
