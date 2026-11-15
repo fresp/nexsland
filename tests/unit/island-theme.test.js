@@ -38,7 +38,8 @@ describe("island-theme", () => {
       fill: [0.125, 0.125, 0.125, 0.95],
       fg: [1, 1, 1, 1],
       border: { color: [1, 1, 1, 0.85], width: 2 },
-      glow: { color: [1, 1, 1, 0.55], size: 6 },
+      glow: { color: [1, 1, 1, 0.55], size: 6, wmax: false },
+      hover: null,
       light: false,
     });
   });
@@ -108,7 +109,17 @@ describe("neon glow", () => {
   it("glows in the border colour when neon is on, even without a border", () => {
     const theme = themeFromBar({ ...bar, neon: true });
     expect(theme.border).toBe(null);
-    expect(theme.glow).toEqual({ color: [0.9, 0.9, 1, 0.55], size: 6 });
+    expect(theme.glow).toEqual({ color: [0.9, 0.9, 1, 0.55], size: 6, wmax: false });
+    expect(themeFromBar({ ...bar, neon: true, "neon-wmax": true }).glow.wmax).toBe(true);
+  });
+
+  it("takes the hover colour for border and glow with the hover effect on", () => {
+    const hovered = { ...bar, neon: true, heffect: true, hcolor: ["0", "0.7", "0.9"], halpha: 0.5 };
+    expect(themeFromBar(hovered).hover).toEqual({
+      color: [0, 0.7, 0.9, 0.5],
+      glow: [0, 0.7, 0.9, 0.55],
+    });
+    expect(themeFromBar({ ...hovered, heffect: false }).hover).toBe(null);
   });
 
   it("has no glow without neon", () => {
