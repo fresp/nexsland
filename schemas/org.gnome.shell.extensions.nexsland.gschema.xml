@@ -56,6 +56,11 @@
       <summary>Bluetooth</summary>
       <description>Show Bluetooth devices connecting and disconnecting.</description>
     </key>
+    <key name="enable-network" type="b">
+      <default>true</default>
+      <summary>Network</summary>
+      <description>Show Wi-Fi, wired and VPN connections and disconnections.</description>
+    </key>
     <key name="logging-enabled" type="b">
       <default>false</default>
       <summary>Enable logging</summary>

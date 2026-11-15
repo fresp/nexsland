@@ -94,6 +94,9 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Devices connecting and disconnecting"),
       ),
     );
+    activities.add(
+      this._switch(settings, "enable-network", _("Network"), _("Wi-Fi, wired and VPN connections")),
+    );
     page.add(activities);
 
     const debug = new Adw.PreferencesGroup({ title: _("Debug") });

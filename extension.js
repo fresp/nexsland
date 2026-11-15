@@ -12,6 +12,7 @@ import { BatteryProvider } from "./lib/providers/battery.js";
 import { MprisProvider } from "./lib/providers/mpris.js";
 import { OsdProvider } from "./lib/providers/osd.js";
 import { BluetoothProvider } from "./lib/providers/bluetooth.js";
+import { NetworkProvider } from "./lib/providers/network.js";
 import { Logger } from "./lib/shared/logger.js";
 import { SignalTracker } from "./lib/shared/signals.js";
 
@@ -21,6 +22,7 @@ const PROVIDERS = {
   "enable-osd": OsdProvider,
   "enable-battery": BatteryProvider,
   "enable-bluetooth": BluetoothProvider,
+  "enable-network": NetworkProvider,
 };
 
 export default class NexslandExtension extends Extension {
