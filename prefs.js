@@ -14,6 +14,7 @@ import {
 
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
 const ISLAND_STYLES = ["attached", "floating"];
+const ISLAND_MONITORS = ["primary", "focused"];
 
 export default class NexslandPreferences extends ExtensionPreferences {
   fillPreferencesWindow(window) {
@@ -30,6 +31,12 @@ export default class NexslandPreferences extends ExtensionPreferences {
       this._combo(settings, "island-style", _("Style"), ISLAND_STYLES, [
         _("Attached to top bar"),
         _("Floating pill"),
+      ]),
+    );
+    island.add(
+      this._combo(settings, "island-monitor", _("Monitor"), ISLAND_MONITORS, [
+        _("Primary monitor"),
+        _("Monitor of the focused window"),
       ]),
     );
     island.add(

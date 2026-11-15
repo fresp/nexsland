@@ -10,6 +10,15 @@
       <summary>Island style</summary>
       <description>"attached" hangs the island from the top bar like a notch; "floating" is a pill below it.</description>
     </key>
+    <key name="island-monitor" type="s">
+      <choices>
+        <choice value="primary"/>
+        <choice value="focused"/>
+      </choices>
+      <default>"primary"</default>
+      <summary>Monitor</summary>
+      <description>"primary" keeps the island on the primary monitor; "focused" moves it to the monitor of the focused window.</description>
+    </key>
     <key name="open-on-hover" type="b">
       <default>true</default>
       <summary>Open on hover</summary>
