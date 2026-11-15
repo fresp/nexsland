@@ -89,12 +89,13 @@ describe("calendar-model", () => {
     expect(grid[0][0].inMonth).toBe(false);
     expect(grid.length).toBe(6);
     const today = grid.flat().filter((c) => c.isToday);
-    expect(today).toEqual([{ day: 15, inMonth: true, isToday: true }]);
+    expect(today).toMatchObject([{ day: 15, inMonth: true, isToday: true }]);
+    expect(today[0].date).toEqual(new Date(2026, 10, 15));
   });
 
   it("starts on Sunday when asked", () => {
     const grid = monthGrid(2026, 10, 0, { year: 2000, month: 0, day: 1 });
-    expect(grid[0][0]).toEqual({ day: 1, inMonth: true, isToday: false });
+    expect(grid[0][0]).toMatchObject({ day: 1, inMonth: true, isToday: false });
     expect(weekdayOrder(1)).toEqual([1, 2, 3, 4, 5, 6, 0]);
   });
 });
