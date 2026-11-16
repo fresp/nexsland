@@ -15,6 +15,12 @@
 
 ### Changed
 
+- **The Calendar tab shows your tasks.** The left side shows one day, today until you click
+  another, with its events and Today tasks by time: a box for a task, ticked once done, and
+  a dot for an event. Under each date in the month, a teal dot marks open tasks and an amber
+  one events. Clicking a task opens the Today tab. The upcoming-events list and the large
+  date shown without calendars are gone.
+
 - **Today's tasks are kept in a file**, `~/.local/share/nexsland/todos.json`, instead of
   GSettings. The list is moved there on the first start.
 

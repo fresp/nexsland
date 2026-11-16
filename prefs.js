@@ -212,7 +212,11 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Today"),
         _("A checklist for today and the coming days, with timed reminders"),
       ],
-      ["enable-calendar", _("Calendar"), _("Events, months and days")],
+      [
+        "enable-calendar",
+        _("Calendar"),
+        _("A day's events and tasks, and a month that marks them"),
+      ],
       ["enable-stats", _("System"), _("CPU, memory and network")],
       [
         "enable-clipboard",

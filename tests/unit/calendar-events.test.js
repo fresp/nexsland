@@ -4,6 +4,7 @@ import {
   addMonths,
   agenda,
   dayAgenda,
+  dayItems,
   dayOffset,
   isAllDay,
   monthsBetween,
@@ -70,5 +71,30 @@ describe("calendar events", () => {
   it("counts months across years", () => {
     expect(monthsBetween({ year: 2026, month: 10 }, d(2027, 0, 3))).toBe(2);
     expect(monthsBetween({ year: 2026, month: 10 }, d(2026, 9, 31))).toBe(-1);
+  });
+});
+
+describe("dayItems", () => {
+  it("puts a day's events and tasks in one list by time", () => {
+    const ev = (h, m, extra = {}) => ({
+      summary: `ev ${h}`,
+      start: d(2026, 10, 16, h, m),
+      allDay: false,
+      continues: false,
+      ...extra,
+    });
+    const task = (minutes, title) => ({ title, minutes });
+    const items = dayItems(
+      [ev(14, 30), ev(0, 0, { allDay: true }), ev(9, 0)],
+      [task(14 * 60 + 30, "same time"), task(null, "untimed"), task(8 * 60, "early")],
+    );
+    expect(items.map((i) => (i.kind === "task" ? i.task.title : i.event.summary))).toEqual([
+      "ev 0",
+      "untimed",
+      "early",
+      "ev 9",
+      "ev 14",
+      "same time",
+    ]);
   });
 });

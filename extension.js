@@ -157,6 +157,7 @@ export default class NexslandExtension extends Extension {
             canPresent: (monitorIndex, urgent) =>
               this._island?.canPresent(monitorIndex, urgent) ?? false,
             invalidateTabs: () => this._syncTabs(),
+            showTab: (id) => this._island?.showTab(id),
           }),
         );
       } catch (e) {

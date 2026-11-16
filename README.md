@@ -83,15 +83,15 @@ Each of these is a switch under Preferences > Activities.
 
 ### Panel tabs
 
-| Tab               | What it does                                                                                                                                                      |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Home**          | The current activity, with its controls.                                                                                                                          |
-| **Notifications** | The shell's notifications with Do Not Disturb, Clear, activate and dismiss.                                                                                       |
-| **Timer**         | A countdown, or a Pomodoro run of focus and break rounds ending on a long break. A live activity while it runs.                                                   |
-| **Today**         | A checklist for today and the coming days. A task with a time is announced a few minutes early and stays on the island from its time on, until ticked or snoozed. |
-| **Calendar**      | A month grid with your events (Evolution / Online Accounts calendars): browse months, click a day, open the calendar app.                                         |
-| **System**        | CPU, memory and network throughput, read only while the tab is open.                                                                                              |
-| **Clipboard**     | Opt-in history of recent text copies, kept in memory only.                                                                                                        |
+| Tab               | What it does                                                                                                                                                         |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Home**          | The current activity, with its controls.                                                                                                                             |
+| **Notifications** | The shell's notifications with Do Not Disturb, Clear, activate and dismiss.                                                                                          |
+| **Timer**         | A countdown, or a Pomodoro run of focus and break rounds ending on a long break. A live activity while it runs.                                                      |
+| **Today**         | A checklist for today and the coming days. A task with a time is announced a few minutes early and stays on the island from its time on, until ticked or snoozed.    |
+| **Calendar**      | A day with its events and Today tasks by time, and a month grid that marks days with tasks or events (Evolution / Online Accounts calendars). Click a day to see it. |
+| **System**        | CPU, memory and network throughput, read only while the tab is open.                                                                                                 |
+| **Clipboard**     | Opt-in history of recent text copies, kept in memory only.                                                                                                           |
 
 Each tab is a switch under Preferences > Panel.
 
