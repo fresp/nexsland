@@ -148,7 +148,7 @@
     <key name="enable-today" type="b">
       <default>true</default>
       <summary>Today tab</summary>
-      <description>A checklist for the day. A task with a time is shown on the island when it is due.</description>
+      <description>A checklist for today and the coming days. A task with a time is shown on the island when it is due.</description>
     </key>
     <key name="today-remind-before" type="i">
       <range min="0" max="120"/>
@@ -158,8 +158,8 @@
     </key>
     <key name="today-tasks" type="s">
       <default>'[]'</default>
-      <summary>Today's tasks</summary>
-      <description>The Today tab's list, as JSON. Edited from the island, not by hand.</description>
+      <summary>Today's tasks (old storage)</summary>
+      <description>Where the Today tab kept its list before 0.4. It is moved to ~/.local/share/nexsland/todos.json on the first start and then cleared.</description>
     </key>
     <key name="enable-calendar" type="b">
       <default>true</default>

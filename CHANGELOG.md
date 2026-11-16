@@ -1,5 +1,29 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- **Plan tasks for the coming days** in the Today tab. The add row has a day button between
+  the title and the time; click it to pick a day from a month, up to a year ahead, or scroll
+  on it to step a day at a time. Days that already have tasks are tinted. The tab lists
+  today's tasks, then each coming day's under its date. A task for a later day stays quiet
+  until that day, keeps its time, and is reminded then.
+- **Export and import Today's tasks** in Preferences > Panel > Today: export every task to a
+  JSON file, import one by merging it with your tasks or replacing them, and open the folder
+  the list is stored in.
+
+### Changed
+
+- **The Calendar tab shows your tasks.** The left side shows one day, today until you click
+  another, with its events and Today tasks by time: a box for a task, ticked once done, and
+  a dot for an event. Under each date in the month, a teal dot marks open tasks and an amber
+  one events. Clicking a task opens the Today tab. The upcoming-events list and the large
+  date shown without calendars are gone.
+
+- **Today's tasks are kept in a file**, `~/.local/share/nexsland/todos.json`, instead of
+  GSettings. The list is moved there on the first start.
+
 ## 0.3.0 (2026-11-16)
 
 ### Added
