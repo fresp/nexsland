@@ -9,6 +9,9 @@
   on it to step a day at a time. Days that already have tasks are tinted. The tab lists
   today's tasks, then each coming day's under its date. A task for a later day stays quiet
   until that day, keeps its time, and is reminded then.
+- **Export and import Today's tasks** in Preferences > Panel > Today: export every task to a
+  JSON file, import one by merging it with your tasks or replacing them, and open the folder
+  the list is stored in.
 
 ### Changed
 

@@ -19,6 +19,7 @@ import {
 } from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
 import { LookPage, comboRow, spinRow, switchRow } from "./lib/prefs/look.js";
+import { todoFileRows } from "./lib/prefs/todos.js";
 
 const ANIMATION_STYLES = ["bouncy", "smooth", "snappy"];
 const ISLAND_STYLES = ["attached", "notch", "floating"];
@@ -52,7 +53,7 @@ export default class NexslandPreferences extends ExtensionPreferences {
     window.add(this._islandPage(settings));
     window.add(this._clockPage(settings));
     window.add(this._activitiesPage(settings));
-    window.add(this._panelPage(settings));
+    window.add(this._panelPage(settings, window));
     window.add(new LookPage({ settings, barSettings, window }).page);
   }
 
@@ -193,7 +194,7 @@ export default class NexslandPreferences extends ExtensionPreferences {
     return p;
   }
 
-  _panelPage(settings) {
+  _panelPage(settings, window) {
     const p = page(_("Panel"), "view-grid-symbolic");
     const tabs = new Adw.PreferencesGroup({
       title: _("Panel tabs"),
@@ -232,6 +233,7 @@ export default class NexslandPreferences extends ExtensionPreferences {
         _("Minutes before a task's time; 0 only reminds at that time"),
       ),
     );
+    for (const row of todoFileRows(window)) today.add(row);
     p.add(today);
     return p;
   }
