@@ -10,6 +10,11 @@
   today's tasks, then each coming day's under its date. A task for a later day stays quiet
   until that day, keeps its time, and is reminded then.
 
+### Changed
+
+- **Today's tasks are kept in a file**, `~/.local/share/nexsland/todos.json`, instead of
+  GSettings. The list is moved there on the first start.
+
 ## 0.3.0 (2026-11-16)
 
 ### Added

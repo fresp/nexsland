@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   MAX_DAYS_AHEAD,
   TodayList,
+  parseTaskRows,
   addDays,
   dayString,
   formatMinutes,
@@ -158,5 +159,38 @@ describe("days", () => {
     expect(isPlannable(addDays(DAY, -1), DAY)).toBe(false);
     expect(isPlannable(addDays(DAY, MAX_DAYS_AHEAD), DAY)).toBe(true);
     expect(isPlannable(addDays(DAY, MAX_DAYS_AHEAD + 1), DAY)).toBe(false);
+  });
+});
+
+describe("saved lists", () => {
+  it("writes a versioned file and reads the old bare array too", () => {
+    const list = new TodayList();
+    list.add("Review 16:00", DAY);
+    const saved = JSON.parse(list.serialize());
+    expect(saved.version).toBe(1);
+    expect(saved.tasks).toHaveLength(1);
+    expect(new TodayList(JSON.stringify(saved.tasks)).tasks).toEqual(list.tasks);
+    expect(parseTaskRows('{"other":1}')).toBe(null);
+    expect(parseTaskRows("nope")).toBe(null);
+  });
+
+  it("drops rows with a malformed day", () => {
+    const rows = [
+      { title: "ok", day: DAY },
+      { title: "bad", day: "tomorrow" },
+    ];
+    expect(new TodayList(JSON.stringify(rows)).tasks.map((t) => t.title)).toEqual(["ok"]);
+  });
+
+  it("merges only the tasks it does not have", () => {
+    const mine = new TodayList();
+    mine.add("Review 16:00", DAY);
+    const theirs = new TodayList();
+    theirs.add("Review 16:00", DAY);
+    theirs.add("Review 17:00", DAY);
+    theirs.add("Notes", "2026-11-20");
+    expect(mine.merge(theirs)).toBe(2);
+    expect(mine.size).toBe(3);
+    expect(mine.merge(theirs)).toBe(0);
   });
 });
