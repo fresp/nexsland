@@ -490,6 +490,10 @@
   color: #2fb8a6;
 }
 
+.nexsland-today-date:focus {
+  box-shadow: inset 0 0 0 1px #2fb8a6;
+}
+
 .nexsland-today-date:checked {
   background-color: #2fb8a6;
   color: #000000;

@@ -4,6 +4,8 @@
 
 ### Added
 
+- **Tab and Shift+Tab** move between the Today add row's title, day and time.
+- **A half-typed task is kept** when the panel closes, and is back when it opens again.
 - **Plan tasks for the coming days** in the Today tab. The add row has a day button between
   the title and the time; click it to pick a day from a month, up to a year ahead, or scroll
   on it to step a day at a time. Days that already have tasks are tinted. The tab lists
@@ -14,6 +16,9 @@
   the list is stored in.
 
 ### Changed
+
+- **The panel stays open while you type in it**, even when the pointer leaves the island;
+  it closes once the keyboard goes elsewhere (Escape, or clicking a window).
 
 - **The Calendar tab shows your tasks.** The left side shows one day, today until you click
   another, with its events and Today tasks by time: a box for a task, ticked once done, and
